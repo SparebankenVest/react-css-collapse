@@ -1,0 +1,71 @@
+{
+  "name": "react-css-collapse",
+  "version": "1.0.0",
+  "description": "Component-wrapper for collapse animation with css for elements with variable and dynamic height",
+  "authors": [
+    "Torleif Halseth",
+    "Håkon Nilsen",
+    "Eirik Årdal"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SparebankenVest/react-css-collapse"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha test/setup.js test --recursive --compilers js:babel-register",
+    "test:watch": "npm run test -- -w",
+    "babel": "babel -d lib src --ignore spec.js --source-maps",
+    "clean": "rm -rf lib",
+    "build": "npm test && npm run eslint && npm run clean && npm run babel",
+    "eslint": "eslint src/**/*.js* test/**/*.js",
+    "prepublish": "npm run build",
+    "start": "npm run babel -- -w",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "peerDependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "devDependencies": {
+    "@kadira/storybook": "^2.35.3",
+    "babel-cli": "^6.24.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-object-rest-spread": "^6.19.0",
+    "babel-preset-latest": "^6.24.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-1": "^6.13.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.6.0",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^3.0.2",
+    "eslint-plugin-react": "^6.7.1",
+    "jsdom": "^9.12.0",
+    "mocha": "^3.1.2",
+    "mocha-teamcity-reporter": "^1.1.1",
+    "react": "15.4.2",
+    "react-addons-test-utils": "^15.3.2",
+    "react-dom": "15.4.2",
+    "sinon": "^1.17.6"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "react-component",
+    "collapse",
+    "expand",
+    "dropdown",
+    "accordion",
+    "slide-down",
+    "slide-up"
+  ],
+}

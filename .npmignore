@@ -1,0 +1,12 @@
+# Dot files
+.gitignore
+.eslintrc
+.babelrc
+
+package.json
+wallaby.js
+
+# Folders
+src/
+test/
+.storybook/
