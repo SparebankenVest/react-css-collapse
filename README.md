@@ -1,4 +1,4 @@
-# digitalbank-collapse
+# react-css-collapse
 Component-wrapper for collapse animation with css for elements with variable and dynamic height
 
 ### Collapse
