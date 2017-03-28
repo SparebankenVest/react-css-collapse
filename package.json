@@ -61,11 +61,12 @@
     "react",
     "component",
     "react-component",
+    "react-collapse",
     "collapse",
     "expand",
     "dropdown",
     "accordion",
     "slide-down",
     "slide-up"
-  ],
+  ]
 }

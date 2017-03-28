@@ -1,10 +1,17 @@
 # react-css-collapse
 Component-wrapper for collapse animation with css for elements with variable and dynamic height
 
-### Collapse
+## Installation
 
-## Usage
+Using [npm](https://www.npmjs.com/):
+
+`npm install --save react-css-collapse`
+
+Then with a module bundler like [webpack](https://webpack.github.io/), use as you would anything else:
+
 ```js
+import Collapse from 'react-css-collapse';
+
 <Collapse isOpened={true || false}>
   <div>Random content</div>
 </Collapse>
