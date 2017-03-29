@@ -1,6 +1,13 @@
 import React, { PropTypes, Component } from 'react';
 
 class Collapse extends Component {
+  componentDidMount() {
+    const height = this.content.scrollHeight;
+    if (this.props.isOpen) {
+      // have the element transition to the height of its inner content
+      this.content.style.height = `${height}px`;
+    }
+  }
   componentWillReceiveProps(nextProps) {
     const height = this.content.scrollHeight;
     // expand

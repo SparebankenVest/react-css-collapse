@@ -5,7 +5,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: null,
+      index: 0,
     };
     this.setIndex = this.setIndex.bind(this);
   }
