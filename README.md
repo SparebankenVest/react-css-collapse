@@ -12,14 +12,14 @@ Then with a module bundler like [webpack](https://webpack.github.io/), use as yo
 ```js
 import Collapse from 'react-css-collapse';
 
-<Collapse isOpened={true || false}>
+<Collapse isOpen={true || false}>
   <div>Random content</div>
 </Collapse>
 ```
 
 ## Options
 
-#### `isOpened`: PropTypes.boolean.isRequired
+#### `isOpen`: PropTypes.boolean.isRequired
 
 Expands or collapses content.
 
@@ -28,7 +28,7 @@ Expands or collapses content.
 One or multiple children with static, variable or dynamic height.
 
 ```js
-<Collapse isOpened={true}>
+<Collapse isOpen={true}>
   <p>Paragraph of text</p>
   <p>Another paragraph is also OK</p>
   <p>Images and any other content are ok too</p>
