@@ -1,6 +1,20 @@
 import React, { PropTypes, Component } from 'react';
 
 class Collapse extends Component {
+  componentDidMount() {
+    if (this.props.isOpen) {
+      // temporarily disable css transition
+      const transition = this.content.style.transition;
+      this.content.style.transition = '';
+
+      // on the next frame (as soon as removing transition has taken effect)
+      window.requestAnimationFrame(() => {
+        // have the element set to the height of its inner content without transition
+        this.content.style.height = `${this.content.scrollHeight}px`;
+        this.content.style.transition = transition;
+      });
+    }
+  }
   componentWillReceiveProps(nextProps) {
     const height = this.content.scrollHeight;
     // expand
@@ -31,7 +45,6 @@ class Collapse extends Component {
           willChange: 'height',
           height: '0px',
           overflow: 'hidden',
-          ...this.props.style,
         }}
         className={this.props.className}
         onTransitionEnd={() => {
@@ -50,14 +63,12 @@ class Collapse extends Component {
 Collapse.defaultProps = {
   isOpen: false,
   className: null,
-  style: null,
 };
 
 Collapse.propTypes = {
   children: PropTypes.node.isRequired,
   isOpen: PropTypes.bool,
   className: PropTypes.string,
-  style: PropTypes.shape({}),
 };
 
 export default Collapse;
