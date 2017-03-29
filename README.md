@@ -41,20 +41,9 @@ One or multiple children with static, variable or dynamic height.
 You can specify a className with your desired style and animation
 
 ```scss
-.collapse-transition-example {
-  transition: transform 250ms cubic-bezier(.4, 0, .2, 1);
+.react-css-collapse-transition {
+  transition: height 250ms cubic-bezier(.4, 0, .2, 1);
 }
-```
-
-### `style`: PropType.shape({})
-
-You can specify style as you desire. Maybe include some animation?
-
-```js
-const style= {
-  transition: 'height 250ms cubic-bezier(.4, 0, .2, 1)',
-  WebKitTransition: 'height 250ms cubic-bezier(.4, 0, .2, 1)',
-};
 ```
 
 ## Development and testing
