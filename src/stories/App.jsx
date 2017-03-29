@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Collapse from '../components/Collapse';
+import './style.css';
 
 class App extends Component {
   constructor(props) {
@@ -31,10 +32,7 @@ class App extends Component {
               </button>
               <Collapse
                 isOpen={this.state.index === index}
-                style={{
-                  transition: 'height 250ms cubic-bezier(.4, 0, .2, 1)',
-                  WebKitTransition: 'height 250ms cubic-bezier(.4, 0, .2, 1)',
-                }}
+                className="react-css-collapse-transition"
               >
                 <div style={{ background: 'lightpink', padding: '20px' }}>
                   {element.text}
