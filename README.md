@@ -1,7 +1,7 @@
 # react-css-collapse
+Component-wrapper for collapse animation with css for elements with variable and dynamic height
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/SparebankenVest/react-css-collapse.svg)](https://greenkeeper.io/)
-Component-wrapper for collapse animation with css for elements with variable and dynamic height
 
 ## Installation
 
