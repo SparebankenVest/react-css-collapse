@@ -55,7 +55,7 @@ class Collapse extends Component {
           }
         }}
       >
-        {this.props.children}
+        {this.props.children && this.props.children}
       </div>
     );
   }
@@ -64,10 +64,11 @@ class Collapse extends Component {
 Collapse.defaultProps = {
   isOpen: false,
   className: null,
+  children: null,
 };
 
 Collapse.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   isOpen: PropTypes.bool,
   className: PropTypes.string,
 };
