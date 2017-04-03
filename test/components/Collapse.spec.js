@@ -10,7 +10,7 @@ import Collapse from '../../src/components/collapse';
 describe('<Collapse />', () => {
   let utilStub;
   beforeEach(() => {
-    utilStub = sinon.stub(util, 'requestAnimationFrame');
+    utilStub = sinon.stub(util, 'requestAnimationFrameStub');
   });
   afterEach(() => {
     utilStub.restore();

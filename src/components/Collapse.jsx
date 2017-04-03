@@ -9,7 +9,7 @@ class Collapse extends Component {
       this.content.style.transition = '';
 
       // on the next frame (as soon as removing transition has taken effect)
-      util.requestAnimationFrame(() => {
+      util.requestAnimationFrameStub(() => {
         // have the element set to the height of its inner content without transition
         this.content.style.height = `${this.content.scrollHeight}px`;
         this.content.style.transition = transition;
