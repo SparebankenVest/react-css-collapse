@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import util from '../util';
 
 class Collapse extends Component {
   componentDidMount() {
@@ -8,7 +9,7 @@ class Collapse extends Component {
       this.content.style.transition = '';
 
       // on the next frame (as soon as removing transition has taken effect)
-      window.requestAnimationFrame(() => {
+      util.requestAnimationFrame(() => {
         // have the element set to the height of its inner content without transition
         this.content.style.height = `${this.content.scrollHeight}px`;
         this.content.style.transition = transition;
@@ -54,7 +55,7 @@ class Collapse extends Component {
           }
         }}
       >
-        {this.props.children}
+        {this.props.children && this.props.children}
       </div>
     );
   }
@@ -63,10 +64,11 @@ class Collapse extends Component {
 Collapse.defaultProps = {
   isOpen: false,
   className: null,
+  children: null,
 };
 
 Collapse.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   isOpen: PropTypes.bool,
   className: PropTypes.string,
 };

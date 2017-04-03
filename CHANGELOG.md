@@ -1,5 +1,11 @@
 # Changelog
 
+# 2.0.1
+> Apr 3, 2017
+
+* :tada: **Feature** Setup tests
+* :tada: **Feature** Do not require children property
+
 # 2.0.0
 > Mar 29, 2017
 
