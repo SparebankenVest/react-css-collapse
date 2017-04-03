@@ -8,12 +8,12 @@ import util from '../../src/util';
 import Collapse from '../../src/components/collapse';
 
 describe('<Collapse />', () => {
-  let utilStub;
+  let requestAnimationFrameStub;
   beforeEach(() => {
-    utilStub = sinon.stub(util, 'requestAnimationFrameStub');
+    requestAnimationFrameStub = sinon.stub(util, 'requestAnimationFrame');
   });
   afterEach(() => {
-    utilStub.restore();
+    requestAnimationFrameStub.restore();
   });
   context('DOM element', () => {
     it('should include className when defined', () => {
@@ -31,11 +31,11 @@ describe('<Collapse />', () => {
   context('Component', () => {
     it('should requestAnimationFrame when open', () => {
       mount(<Collapse isOpen><p>Content</p></Collapse>);
-      sinon.assert.calledOnce(utilStub);
+      sinon.assert.calledOnce(requestAnimationFrameStub);
     });
     it('should not requestAnimationFrame when collapsed', () => {
       mount(<Collapse><p>Content</p></Collapse>);
-      sinon.assert.notCalled(utilStub);
+      sinon.assert.notCalled(requestAnimationFrameStub);
     });
   });
 });

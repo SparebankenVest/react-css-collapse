@@ -1,5 +1,5 @@
-const requestAnimationFrameStub = (func) => {
+const requestAnimationFrame = (func) => {
   window.requestAnimationFrame(func);
 };
 
-export default { requestAnimationFrameStub };
+export default { requestAnimationFrame };
