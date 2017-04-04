@@ -17,27 +17,42 @@ class Collapse extends Component {
     }
   }
   componentWillReceiveProps(nextProps) {
-    const height = this.content.scrollHeight;
+    const element = this.content;
+    const height = element.scrollHeight;
     // expand
     if (!this.props.isOpen && nextProps.isOpen) {
       // have the element transition to the height of its inner content
-      this.content.style.height = `${height}px`;
+      element.style.height = `${height}px`;
     }
     // collapse
     if (this.props.isOpen && !nextProps.isOpen) {
-      const element = this.content;
       // explicitly set the element's height to its current pixel height, so we
       // aren't transitioning out of 'auto'
       element.style.height = `${height}px`;
 
-      // on the next frame (as soon as the previous style change has taken effect),
-      // have the element transition to height: 0
-      window.requestAnimationFrame(() => {
-        element.style.height = '0px';
-        element.style.overflow = 'hidden';
-      });
+      this.setHeightToCurrentPixelHeight()
+        .then(() => {
+          // on the next frame (as soon as the previous style change has taken effect),
+          // have the element transition to height: 0
+          setTimeout(() => {
+            window.requestAnimationFrame(() => {
+              element.style.height = '0px';
+              element.style.overflow = 'hidden';
+            });
+          }, 0);
+        });
     }
   }
+
+  setHeightToCurrentPixelHeight() {
+    return new Promise(
+      (resolve) => {
+        this.content.style.height = `${this.content.scrollHeight}px`;
+        resolve(this.content.scrollHeight);
+      },
+    );
+  }
+
   render() {
     return (
       <div
