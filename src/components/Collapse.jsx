@@ -4,16 +4,7 @@ import util from '../util';
 class Collapse extends Component {
   componentDidMount() {
     if (this.props.isOpen) {
-      // temporarily disable css transition
-      const transition = this.content.style.transition;
-      this.content.style.transition = '';
-
-      // on the next frame (as soon as removing transition has taken effect)
-      util.requestAnimationFrame(() => {
-        // have the element set to the height of its inner content without transition
-        this.content.style.height = `${this.content.scrollHeight}px`;
-        this.content.style.transition = transition;
-      });
+      this.content.style.height = 'auto';
     }
   }
   componentWillReceiveProps(nextProps) {
@@ -29,7 +20,7 @@ class Collapse extends Component {
       // explicitly set the element's height to its current pixel height, so we
       // aren't transitioning out of 'auto'
       element.style.height = `${height}px`;
-      window.requestAnimationFrame(() => {
+      util.requestAnimationFrame(() => {
         // "pausing" the JavaScript execution to let the rendering threads catch up
         // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
         setTimeout(() => {
