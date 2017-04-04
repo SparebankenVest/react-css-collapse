@@ -30,6 +30,7 @@ class Collapse extends Component {
       // aren't transitioning out of 'auto'
       element.style.height = `${height}px`;
       window.requestAnimationFrame(() => {
+        // "pausing" the JavaScript execution to let the rendering threads catch up
         setTimeout(() => {
           element.style.height = '0px';
           element.style.overflow = 'hidden';
