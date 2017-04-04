@@ -3,7 +3,7 @@
 # 2.0.2
 > Apr 4, 2017
 
-* :bug: **Bugfix** Using setTimeout(fn, 0) to ensure correct pixelheight is set before transition (back) starts. This ensures we are not transitioning back from `auto`
+* :bug: **Bugfix** Using setTimeout(fn, 0) to ensure correct pixelheight is set before transition (back) starts. This ensures we are not transitioning back from `auto`. Ref: http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
 
 # 2.0.1
 > Apr 3, 2017

@@ -31,6 +31,7 @@ class Collapse extends Component {
       element.style.height = `${height}px`;
       window.requestAnimationFrame(() => {
         // "pausing" the JavaScript execution to let the rendering threads catch up
+        // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
         setTimeout(() => {
           element.style.height = '0px';
           element.style.overflow = 'hidden';
