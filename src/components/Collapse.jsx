@@ -29,28 +29,13 @@ class Collapse extends Component {
       // explicitly set the element's height to its current pixel height, so we
       // aren't transitioning out of 'auto'
       element.style.height = `${height}px`;
-
-      this.setHeightToCurrentPixelHeight()
-        .then(() => {
-          // on the next frame (as soon as the previous style change has taken effect),
-          // have the element transition to height: 0
-          setTimeout(() => {
-            window.requestAnimationFrame(() => {
-              element.style.height = '0px';
-              element.style.overflow = 'hidden';
-            });
-          }, 0);
-        });
+      window.requestAnimationFrame(() => {
+        setTimeout(() => {
+          element.style.height = '0px';
+          element.style.overflow = 'hidden';
+        }, 0);
+      });
     }
-  }
-
-  setHeightToCurrentPixelHeight() {
-    return new Promise(
-      (resolve) => {
-        this.content.style.height = `${this.content.scrollHeight}px`;
-        resolve();
-      },
-    );
   }
 
   render() {
