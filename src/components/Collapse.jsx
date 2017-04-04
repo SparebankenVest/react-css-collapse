@@ -4,31 +4,33 @@ import util from '../util';
 class Collapse extends Component {
   componentDidMount() {
     if (this.props.isOpen) {
-      this.content.style.height = 'auto';
+      this.setContentProperty('height', 'auto');
     }
   }
   componentWillReceiveProps(nextProps) {
-    const element = this.content;
-    const height = element.scrollHeight;
     // expand
     if (!this.props.isOpen && nextProps.isOpen) {
       // have the element transition to the height of its inner content
-      element.style.height = `${height}px`;
+      this.setContentProperty('height', `${this.content.scrollHeight}px`);
     }
     // collapse
     if (this.props.isOpen && !nextProps.isOpen) {
       // explicitly set the element's height to its current pixel height, so we
       // aren't transitioning out of 'auto'
-      element.style.height = `${height}px`;
+      this.setContentProperty('height', `${this.content.scrollHeight}px`);
       util.requestAnimationFrame(() => {
         // "pausing" the JavaScript execution to let the rendering threads catch up
         // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
         setTimeout(() => {
-          element.style.height = '0px';
-          element.style.overflow = 'hidden';
+          this.setContentProperty('height', '0px');
+          this.setContentProperty('overflow', 'hidden');
         }, 0);
       });
     }
+  }
+
+  setContentProperty(property, value) {
+    this.content.style[property] = value;
   }
 
   render() {
@@ -43,8 +45,8 @@ class Collapse extends Component {
         className={this.props.className}
         onTransitionEnd={() => {
           if (this.props.isOpen) {
-            this.content.style.height = 'auto';
-            this.content.style.overflow = 'visible';
+            this.setContentProperty('height', 'auto');
+            this.setContentProperty('overflow', 'visible');
           }
         }}
       >
