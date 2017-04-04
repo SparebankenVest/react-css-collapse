@@ -48,7 +48,7 @@ class Collapse extends Component {
     return new Promise(
       (resolve) => {
         this.content.style.height = `${this.content.scrollHeight}px`;
-        resolve(this.content.scrollHeight);
+        resolve();
       },
     );
   }
