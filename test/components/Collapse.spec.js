@@ -36,7 +36,7 @@ describe('<Collapse />', () => {
         mount(<Collapse />).find('div').props().style.height,
       ).to.equal('0px');
     });
-    it('inner block should have height: auto when open', () => {
+    it('inner block should have height: 0px when open', () => {
       const wrapper = mount(<Collapse isOpen />);
       expect(wrapper.find('div').props().style.height,
     ).to.equal('0px');
