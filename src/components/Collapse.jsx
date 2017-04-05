@@ -21,10 +21,12 @@ class Collapse extends Component {
       util.requestAnimationFrame(() => {
         // "pausing" the JavaScript execution to let the rendering threads catch up
         // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
-        setTimeout(() => {
-          this.setContentStyleProperty('height', '0px');
-          this.setContentStyleProperty('overflow', 'hidden');
-        }, 0);
+        if (this.content) {
+          setTimeout(() => {
+            this.setContentStyleProperty('height', '0px');
+            this.setContentStyleProperty('overflow', 'hidden');
+          }, 0);
+        }
       });
     }
   }
