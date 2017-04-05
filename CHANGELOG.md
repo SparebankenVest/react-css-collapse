@@ -1,5 +1,10 @@
 # Changelog
 
+# 2.0.2
+> Apr 5, 2017
+
+* :bug: **Bugfix** Checking if content is set before accessing content in requestAnimationFrame callback. This fixes a bug where `this.content` was null initially when navigating back to a page using react-css-collapse you had been to before.
+
 # 2.0.1
 > Apr 3, 2017
 
