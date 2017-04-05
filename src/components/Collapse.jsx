@@ -3,31 +3,31 @@ import util from '../util';
 
 class Collapse extends Component {
   componentDidMount() {
-    if (this.props.isOpen) {
+    if (this.props.isOpen && this.content) {
       this.setContentStyleProperty('height', 'auto');
     }
   }
   componentWillReceiveProps(nextProps) {
-    // expand
-    if (!this.props.isOpen && nextProps.isOpen) {
-      // have the element transition to the height of its inner content
-      this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
-    }
-    // collapse
-    if (this.props.isOpen && !nextProps.isOpen) {
-      // explicitly set the element's height to its current pixel height, so we
-      // aren't transitioning out of 'auto'
-      this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
-      util.requestAnimationFrame(() => {
-        // "pausing" the JavaScript execution to let the rendering threads catch up
-        // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
-        if (this.content) {
+    if (this.content) {
+      // expand
+      if (!this.props.isOpen && nextProps.isOpen) {
+        // have the element transition to the height of its inner content
+        this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
+      }
+      // collapse
+      if (this.props.isOpen && !nextProps.isOpen) {
+        // explicitly set the element's height to its current pixel height, so we
+        // aren't transitioning out of 'auto'
+        this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
+        util.requestAnimationFrame(() => {
+          // "pausing" the JavaScript execution to let the rendering threads catch up
+          // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
           setTimeout(() => {
             this.setContentStyleProperty('height', '0px');
             this.setContentStyleProperty('overflow', 'hidden');
           }, 0);
-        }
-      });
+        });
+      }
     }
   }
 
