@@ -3,41 +3,38 @@ import util from '../util';
 
 class Collapse extends Component {
   componentDidMount() {
-    if (this.props.isOpen) {
-      // temporarily disable css transition
-      const transition = this.content.style.transition;
-      this.content.style.transition = '';
-
-      // on the next frame (as soon as removing transition has taken effect)
-      util.requestAnimationFrame(() => {
-        // have the element set to the height of its inner content without transition
-        this.content.style.height = `${this.content.scrollHeight}px`;
-        this.content.style.transition = transition;
-      });
+    if (this.props.isOpen && this.content) {
+      this.setContentStyleProperty('height', 'auto');
     }
   }
   componentWillReceiveProps(nextProps) {
-    const height = this.content.scrollHeight;
-    // expand
-    if (!this.props.isOpen && nextProps.isOpen) {
-      // have the element transition to the height of its inner content
-      this.content.style.height = `${height}px`;
-    }
-    // collapse
-    if (this.props.isOpen && !nextProps.isOpen) {
-      const element = this.content;
-      // explicitly set the element's height to its current pixel height, so we
-      // aren't transitioning out of 'auto'
-      element.style.height = `${height}px`;
-
-      // on the next frame (as soon as the previous style change has taken effect),
-      // have the element transition to height: 0
-      window.requestAnimationFrame(() => {
-        element.style.height = '0px';
-        element.style.overflow = 'hidden';
-      });
+    if (this.content) {
+      // expand
+      if (!this.props.isOpen && nextProps.isOpen) {
+        // have the element transition to the height of its inner content
+        this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
+      }
+      // collapse
+      if (this.props.isOpen && !nextProps.isOpen) {
+        // explicitly set the element's height to its current pixel height, so we
+        // aren't transitioning out of 'auto'
+        this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
+        util.requestAnimationFrame(() => {
+          // "pausing" the JavaScript execution to let the rendering threads catch up
+          // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
+          setTimeout(() => {
+            this.setContentStyleProperty('height', '0px');
+            this.setContentStyleProperty('overflow', 'hidden');
+          }, 0);
+        });
+      }
     }
   }
+
+  setContentStyleProperty(property, value) {
+    this.content.style[property] = value;
+  }
+
   render() {
     return (
       <div
@@ -50,8 +47,8 @@ class Collapse extends Component {
         className={this.props.className}
         onTransitionEnd={() => {
           if (this.props.isOpen) {
-            this.content.style.height = 'auto';
-            this.content.style.overflow = 'visible';
+            this.setContentStyleProperty('height', 'auto');
+            this.setContentStyleProperty('overflow', 'visible');
           }
         }}
       >
