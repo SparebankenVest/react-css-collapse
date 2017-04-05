@@ -1,7 +1,7 @@
 # Changelog
 
 # 2.0.2
-> Apr 4, 2017
+> Apr 5, 2017
 
 * :bug: **Bugfix** Using setTimeout(fn, 0) to ensure correct pixelheight is set before transition (back) starts. This ensures we are not transitioning back from `auto`. Ref: http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
 * :bug: **Bugfix** Checking if content is set before accessing content in requestAnimationFrame callback. This fixes a bug where `this.content` was null initially when navigating back to a page using react-css-collapse you had been to before.
