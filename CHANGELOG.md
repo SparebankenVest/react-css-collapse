@@ -1,9 +1,14 @@
 # Changelog
 
+# 3.0.0
+> Apr 7, 2017
+* :tada: **Feature** added `onRest` callback. The callback is triggered when your transition on `height` (specified in `className`) is done.
+* :boom: **Breaking** Remove `onTransitionEnd` callback. Please use `onRest` instead.
+
 # 2.1.0
 > Apr 7, 2017
 
-* :tada: **Feature** added `onTransitionEnd` callback that gets called after the expand/collapse animation has finished 
+* :tada: **Feature** added `onTransitionEnd` callback that gets called after the expand/collapse animation has finished
 
 # 2.0.2
 > Apr 5, 2017
