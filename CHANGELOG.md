@@ -2,6 +2,7 @@
 
 # 3.0.0
 > Apr 7, 2017
+
 * :tada: **Feature** added `onRest` callback. The callback is triggered when your transition on `height` (specified in `className`) is done.
 * :boom: **Breaking** Remove `onTransitionEnd` callback. Please use `onRest` instead.
 
