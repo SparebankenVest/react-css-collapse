@@ -50,7 +50,7 @@ class Collapse extends Component {
             this.setContentStyleProperty('height', 'auto');
             this.setContentStyleProperty('overflow', 'visible');
           }
-          if (this.props.onTransitionEnd && typeof this.props.onTransitionEnd === 'function') {
+          if (this.props.onTransitionEnd) {
             this.props.onTransitionEnd();
           }
         }}
