@@ -38,7 +38,11 @@ One or multiple children with static, variable or dynamic height.
 </Collapse>
 ```
 
-### `className`: PropType.string
+#### `onTransitionEnd`: PropTypes.func
+
+A function that is called each time the expand or collapse animation has finished
+
+#### `className`: PropType.string
 
 You can specify a className with your desired style and animation
 

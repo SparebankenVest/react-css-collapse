@@ -1,5 +1,10 @@
 # Changelog
 
+# 2.1.0
+> Apr 7, 2017
+
+* :tada: **Feature** added `onTransitionEnd` callback that gets called after the expand/collapse animation has finished 
+
 # 2.0.2
 > Apr 5, 2017
 

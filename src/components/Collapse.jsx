@@ -50,6 +50,9 @@ class Collapse extends Component {
             this.setContentStyleProperty('height', 'auto');
             this.setContentStyleProperty('overflow', 'visible');
           }
+          if (this.props.onTransitionEnd) {
+            this.props.onTransitionEnd();
+          }
         }}
       >
         {this.props.children && this.props.children}
@@ -62,12 +65,14 @@ Collapse.defaultProps = {
   isOpen: false,
   className: null,
   children: null,
+  onTransitionEnd: null,
 };
 
 Collapse.propTypes = {
   children: PropTypes.node,
   isOpen: PropTypes.bool,
   className: PropTypes.string,
+  onTransitionEnd: PropTypes.func,
 };
 
 export default Collapse;
