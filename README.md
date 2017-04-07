@@ -38,9 +38,8 @@ One or multiple children with static, variable or dynamic height.
 </Collapse>
 ```
 
-#### `onTransitionEnd`: PropTypes.func
-
-A function that is called each time the expand or collapse animation has finished
+#### `onRest`: PropTypes.func
+Callback function for when your transition on `height` (specified in `className`) is finished. It can be used to trigger any function after transition is done.
 
 #### `className`: PropType.string
 

@@ -3,7 +3,7 @@ import util from '../util';
 
 class Collapse extends Component {
   componentDidMount() {
-    if (this.props.isOpen && this.content) {
+    if (this.content && this.props.isOpen) {
       this.setContentStyleProperty('height', 'auto');
     }
   }
@@ -45,13 +45,13 @@ class Collapse extends Component {
           overflow: 'hidden',
         }}
         className={this.props.className}
-        onTransitionEnd={() => {
+        onTransitionEnd={(e) => {
           if (this.props.isOpen) {
             this.setContentStyleProperty('height', 'auto');
             this.setContentStyleProperty('overflow', 'visible');
           }
-          if (this.props.onTransitionEnd) {
-            this.props.onTransitionEnd();
+          if (this.props.onRest && e.target === this.content && e.propertyName === 'height') {
+            this.props.onRest();
           }
         }}
       >
@@ -65,14 +65,14 @@ Collapse.defaultProps = {
   isOpen: false,
   className: null,
   children: null,
-  onTransitionEnd: null,
+  onRest: null,
 };
 
 Collapse.propTypes = {
   children: PropTypes.node,
   isOpen: PropTypes.bool,
   className: PropTypes.string,
-  onTransitionEnd: PropTypes.func,
+  onRest: PropTypes.func,
 };
 
 export default Collapse;
