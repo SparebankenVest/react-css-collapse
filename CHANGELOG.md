@@ -1,6 +1,11 @@
 # Changelog
 
 # 3.0.1
+> May 04, 2017
+
+* :bug: **Bugfix** 	Accessing PropTypes from 'prop-types' package instead of main React package. React.PropTypes will be deprecated in React 15.5
+
+# 3.0.1
 > Apr 30, 2017
 
 * :bug: **Bugfix** When `isOpen={true}`, set the `overflow: visible` after the component mounts to prevent cutting off content that may overflow outside the flow of `height: auto` (i.e. child content with `position: relative` and grandchildren with `position: absolute` may get cut off).
