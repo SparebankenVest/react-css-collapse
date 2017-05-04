@@ -1,6 +1,6 @@
 # Changelog
 
-# 3.0.1
+# 3.0.2
 > May 04, 2017
 
 * :bug: **Bugfix** 	Accessing PropTypes from 'prop-types' package instead of main React package. React.PropTypes will be deprecated in React 15.5
