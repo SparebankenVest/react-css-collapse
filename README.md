@@ -1,4 +1,6 @@
 # react-css-collapse
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/SparebankenVest/react-css-collapse.svg)](https://greenkeeper.io/)
 Component-wrapper for collapse animation with css for elements with variable and dynamic height
 
 [![Build Status](https://travis-ci.org/SparebankenVest/react-css-collapse.svg?branch=master)](https://travis-ci.org/SparebankenVest/react-css-collapse)
