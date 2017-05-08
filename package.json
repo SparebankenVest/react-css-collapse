@@ -51,7 +51,7 @@
     "eslint-plugin-react": "^6.7.1",
     "jsdom": "^9.12.0",
     "mocha": "^3.1.2",
-    "mocha-teamcity-reporter": "^1.1.1",
+    "prop-types": "^15.5.8",
     "react": "15.4.2",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "15.4.2",
