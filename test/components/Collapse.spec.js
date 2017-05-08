@@ -5,7 +5,7 @@ import {
   mount,
 } from 'enzyme';
 import util from '../../src/util';
-import Collapse from '../../src/components/collapse';
+import Collapse from '../../src/components/Collapse';
 
 describe('<Collapse />', () => {
   let requestAnimationFrameStub;
