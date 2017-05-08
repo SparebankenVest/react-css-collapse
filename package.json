@@ -1,6 +1,6 @@
 {
   "name": "react-css-collapse",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Component-wrapper for collapse animation with css for elements with variable and dynamic height",
   "authors": [
     "Torleif Halseth",
@@ -51,8 +51,8 @@
     "eslint-plugin-react": "^7.0.0",
     "jsdom": "^10.1.0",
     "mocha": "^3.1.2",
-    "mocha-teamcity-reporter": "^1.1.1",
     "react": "15.5.4",
+    "prop-types": "^15.5.8",
     "react-addons-test-utils": "^15.3.2",
     "react-dom": "15.5.4",
     "sinon": "^2.1.0"

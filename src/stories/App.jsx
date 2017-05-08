@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { action } from '@kadira/storybook';
 import Collapse from '../components/Collapse';
 import './style.css';
