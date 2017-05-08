@@ -1,6 +1,9 @@
 # react-css-collapse
 Component-wrapper for collapse animation with css for elements with variable and dynamic height
 
+[![npm version](https://img.shields.io/npm/v/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
+[![npm downloads](https://img.shields.io/npm/dm/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
+
 ## Installation
 
 Using [npm](https://www.npmjs.com/):
