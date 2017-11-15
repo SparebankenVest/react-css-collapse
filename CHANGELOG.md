@@ -1,5 +1,11 @@
 # Changelog
 
+# 3.1.0
+> Nov 15, 2017
+* :nut_and_bolt: **New** Add prettier-eslint 💅
+* :nut_and_bolt: **New** Support react 15.x || 16.x 🕺🏼
+* :tada: **Enhancement** Upgrade storybook 🙏
+
 # 3.0.2
 > May 04, 2017
 
@@ -43,3 +49,9 @@
 > Mar 28, 2017
 
 * :nut_and_bolt: **New** Created `Collapse` component
+
+## Examples
+* :nut_and_bolt: **New**
+* :tada: **Enhancement**
+* :bug: **Bugfix**
+* :boom: **Breaking**
