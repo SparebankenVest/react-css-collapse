@@ -1,11 +1,12 @@
 import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
-import {
-  mount,
-} from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import util from '../../src/util';
 import Collapse from '../../src/components/Collapse';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Collapse />', () => {
   let requestAnimationFrameStub;
@@ -30,24 +31,27 @@ describe('<Collapse />', () => {
   context('DOM element', () => {
     it('should include className when defined', () => {
       const className = 'collapse';
-      expect(
-        mount(<Collapse className={className} />).prop('className'),
-      ).to.equal(className);
+      expect(mount(<Collapse className={className} />).prop('className')).to.equal(className);
     });
     it('inner block should have height: 0px when collapsed', () => {
       expect(
-        mount(<Collapse />).find('div').props().style.height,
+        mount(<Collapse />)
+          .find('div')
+          .props().style.height,
       ).to.equal('0px');
     });
     it('inner block should have height: 0px when open', () => {
       const wrapper = mount(<Collapse isOpen />);
-      expect(wrapper.find('div').props().style.height,
-    ).to.equal('0px');
+      expect(wrapper.find('div').props().style.height).to.equal('0px');
     });
   });
   context('Component', () => {
     it('should not requestAnimationFrame when open', () => {
-      mount(<Collapse isOpen><p>Content</p></Collapse>);
+      mount(
+        <Collapse isOpen>
+          <p>Content</p>
+        </Collapse>,
+      );
       sinon.assert.notCalled(requestAnimationFrameStub);
     });
     it('calls componentDidMount and setContentHeight with args auto', () => {
@@ -68,9 +72,7 @@ describe('<Collapse />', () => {
       expect(Collapse.prototype.setContentStyleProperty.calledWith('height', '0px')).to.equal(true);
     });
     it('calls requestAnimationFrame when collapsed', () => {
-      const wrapper = mount(
-        <Collapse isOpen />,
-      );
+      const wrapper = mount(<Collapse isOpen />);
       wrapper.setProps({ isOpen: false });
       expect(requestAnimationFrameStub.called).to.equal(true);
     });

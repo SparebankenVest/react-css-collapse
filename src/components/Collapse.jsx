@@ -53,7 +53,11 @@ class Collapse extends Component {
       this.setExpanded();
     }
 
-    if (this.props.onRest && e.target === this.content && e.propertyName === 'height') {
+    if (
+      this.props.onRest &&
+      e.target === this.content &&
+      e.propertyName === 'height'
+    ) {
       this.props.onRest();
     }
   }
@@ -75,7 +79,9 @@ class Collapse extends Component {
   render() {
     return (
       <div
-        ref={(el) => { this.content = el; }}
+        ref={(el) => {
+          this.content = el;
+        }}
         style={initialStyle}
         className={this.props.className}
         onTransitionEnd={this.onTransitionEnd}

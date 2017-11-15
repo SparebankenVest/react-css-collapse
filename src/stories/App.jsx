@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { action } from '@kadira/storybook';
+import { action } from '@storybook/addon-actions';
 import Collapse from '../components/Collapse';
 import './style.css';
 
@@ -35,7 +35,13 @@ class App extends Component {
               <Collapse
                 isOpen={this.state.index === index}
                 className="react-css-collapse-transition"
-                onRest={action(`${element.name} is now ${this.state.index === index ? 'open' : 'closed'}`)}
+                onRest={() =>
+                  action(
+                    `${element.name} is now ${
+                      this.state.index === index ? 'open' : 'closed'
+                    }`,
+                  )
+                }
               >
                 <div style={{ background: 'lightpink', padding: '20px' }}>
                   {element.text}
@@ -44,9 +50,7 @@ class App extends Component {
             </div>
           ))}
         </section>
-        <h3>
-          Other content...
-        </h3>
+        <h3>Other content...</h3>
       </main>
     );
   }
