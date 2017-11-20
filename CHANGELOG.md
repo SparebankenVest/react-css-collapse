@@ -3,7 +3,7 @@
 # 3.1.0
 > Nov 15, 2017
 * :nut_and_bolt: **New** Add prettier-eslint 💅
-* :nut_and_bolt: **New** Support react 15.x || 16.x 🕺🏼
+* :nut_and_bolt: **New** Support react 15.x || 16.x 🕺🏼 fixes #14
 * :tada: **Enhancement** Upgrade storybook 🙏
 
 # 3.0.2
