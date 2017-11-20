@@ -24,7 +24,10 @@ export const elements = [
   },
 ];
 
-const genText = () => Math.random().toString(36).substring(7);
+const genText = () =>
+  Math.random()
+    .toString(36)
+    .substring(7);
 
 export const createElements = (nr) => {
   const list = [];
