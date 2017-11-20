@@ -1,12 +1,9 @@
 import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
-import Enzyme, { mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import { mount } from 'enzyme';
 import util from '../../src/util';
 import Collapse from '../../src/components/Collapse';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 describe('<Collapse />', () => {
   let requestAnimationFrameStub;
@@ -17,9 +14,15 @@ describe('<Collapse />', () => {
   beforeEach(() => {
     requestAnimationFrameStub = sinon.stub(util, 'requestAnimationFrame');
     setExpandedSpy = sinon.spy(Collapse.prototype, 'setExpanded');
-    setContentStylePropertySpy = sinon.spy(Collapse.prototype, 'setContentStyleProperty');
+    setContentStylePropertySpy = sinon.spy(
+      Collapse.prototype,
+      'setContentStyleProperty',
+    );
     componentDidMountSpy = sinon.spy(Collapse.prototype, 'componentDidMount');
-    componentWillReceivePropsSpy = sinon.spy(Collapse.prototype, 'componentWillReceiveProps');
+    componentWillReceivePropsSpy = sinon.spy(
+      Collapse.prototype,
+      'componentWillReceiveProps',
+    );
   });
   afterEach(() => {
     requestAnimationFrameStub.restore();
@@ -31,7 +34,9 @@ describe('<Collapse />', () => {
   context('DOM element', () => {
     it('should include className when defined', () => {
       const className = 'collapse';
-      expect(mount(<Collapse className={className} />).prop('className')).to.equal(className);
+      expect(
+        mount(<Collapse className={className} />).prop('className'),
+      ).to.equal(className);
     });
     it('inner block should have height: 0px when collapsed', () => {
       expect(
@@ -63,13 +68,17 @@ describe('<Collapse />', () => {
       const wrapper = mount(<Collapse />);
       wrapper.setProps({ isOpen: true });
       sinon.assert.called(Collapse.prototype.componentWillReceiveProps);
-      expect(Collapse.prototype.setContentStyleProperty.calledWith('height', '0px')).to.equal(true);
+      expect(
+        Collapse.prototype.setContentStyleProperty.calledWith('height', '0px'),
+      ).to.equal(true);
     });
     it('calls componentWillReceiveProps when collapsed and calls setContentHeight', () => {
       const wrapper = mount(<Collapse isOpen />);
       wrapper.setProps({ isOpen: false });
       sinon.assert.called(Collapse.prototype.componentWillReceiveProps);
-      expect(Collapse.prototype.setContentStyleProperty.calledWith('height', '0px')).to.equal(true);
+      expect(
+        Collapse.prototype.setContentStyleProperty.calledWith('height', '0px'),
+      ).to.equal(true);
     });
     it('calls requestAnimationFrame when collapsed', () => {
       const wrapper = mount(<Collapse isOpen />);
