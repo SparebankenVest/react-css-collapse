@@ -1,7 +1,9 @@
 # react-css-collapse
 Component-wrapper for collapse animation with css for elements with variable and dynamic height
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/SparebankenVest/react-css-collapse.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/SparebankenVest/react-css-collapse.svg?branch=master)](https://travis-ci.org/SparebankenVest/react-css-collapse)
+[![npm version](https://img.shields.io/npm/v/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
+[![npm downloads](https://img.shields.io/npm/dm/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
 
 ## Installation
 
@@ -38,9 +40,8 @@ One or multiple children with static, variable or dynamic height.
 </Collapse>
 ```
 
-#### `onTransitionEnd`: PropTypes.func
-
-A function that is called each time the expand or collapse animation has finished
+#### `onRest`: PropTypes.func
+Callback function for when your transition on `height` (specified in `className`) is finished. It can be used to trigger any function after transition is done.
 
 #### `className`: PropType.string
 
