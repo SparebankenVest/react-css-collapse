@@ -1,6 +1,6 @@
 # Changelog
 
-# 3.2.0
+# 3.3.0
 > Nov 15, 2017
 * :tada: **Enhancement** Setting `visibility: hidden` when collapse is closed to prevent screenreaders from reading the content
 
