@@ -28,20 +28,18 @@ class Collapse extends Component {
       return;
     }
 
-    // change
-    if (this.props.isOpen !== nextProps.isOpen) {
-      // explicitly set the element's height to its current pixel height, so we
-      // aren't transitioning out of 'auto'
-      this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
-    }
-
     // expand
     if (!this.props.isOpen && nextProps.isOpen) {
+      // have the element transition to the height of its inner content
+      this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
       this.setContentStyleProperty('visibility', 'visible');
     }
 
     // collapse
     if (this.props.isOpen && !nextProps.isOpen) {
+      // explicitly set the element's height to its current pixel height, so we
+      // aren't transitioning out of 'auto'
+      this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
       util.requestAnimationFrame(() => {
         // "pausing" the JavaScript execution to let the rendering threads catch up
         // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
