@@ -6,6 +6,7 @@ const initialStyle = {
   willChange: 'height',
   height: '0px',
   overflow: 'hidden',
+  visibility: 'hidden',
 };
 
 class Collapse extends Component {
@@ -31,6 +32,7 @@ class Collapse extends Component {
     if (!this.props.isOpen && nextProps.isOpen) {
       // have the element transition to the height of its inner content
       this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
+      this.setContentStyleProperty('visibility', 'visible');
     }
 
     // collapse
@@ -42,7 +44,8 @@ class Collapse extends Component {
         // "pausing" the JavaScript execution to let the rendering threads catch up
         // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
         setTimeout(() => {
-          this.setCollapsed();
+          this.setContentStyleProperty('height', '0px');
+          this.setContentStyleProperty('overflow', 'hidden');
         }, 0);
       });
     }
@@ -53,6 +56,8 @@ class Collapse extends Component {
 
     if (isOpen) {
       this.setExpanded();
+    } else {
+      this.setCollapsed();
     }
 
     if (onRest && e.target === this.content && e.propertyName === 'height') {
@@ -65,13 +70,13 @@ class Collapse extends Component {
   }
 
   setCollapsed() {
-    this.setContentStyleProperty('height', '0px');
-    this.setContentStyleProperty('overflow', 'hidden');
+    this.setContentStyleProperty('visibility', 'hidden');
   }
 
   setExpanded() {
     this.setContentStyleProperty('height', 'auto');
     this.setContentStyleProperty('overflow', 'visible');
+    this.setContentStyleProperty('visibility', 'visible');
   }
 
   render() {

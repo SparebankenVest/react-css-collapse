@@ -72,6 +72,14 @@ describe('<Collapse />', () => {
         Collapse.prototype.setContentStyleProperty.calledWith('height', '0px'),
       ).to.equal(true);
     });
+    it('calls componentWillReceiveProps when opened and calls setContentVisibility', () => {
+      const wrapper = mount(<Collapse />);
+      wrapper.setProps({ isOpen: true });
+      sinon.assert.called(Collapse.prototype.componentWillReceiveProps);
+      expect(
+        Collapse.prototype.setContentStyleProperty.calledWith('visibility', 'visible'),
+      ).to.equal(true);
+    });
     it('calls componentWillReceiveProps when collapsed and calls setContentHeight', () => {
       const wrapper = mount(<Collapse isOpen />);
       wrapper.setProps({ isOpen: false });

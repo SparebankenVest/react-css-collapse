@@ -1,5 +1,9 @@
 # Changelog
 
+# 3.2.0
+> Nov 15, 2017
+* :tada: **Enhancement** Setting `visibility: hidden` when collapse is closed to prevent screenreaders from reading the content
+
 # 3.1.0
 > Nov 15, 2017
 * :nut_and_bolt: **New** Add prettier-eslint 💅
