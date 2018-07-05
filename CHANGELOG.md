@@ -1,7 +1,11 @@
 # Changelog
 
+# 3.3.1
+> July 05, 2018
+* :bug: **Bugfix** Check if element target equals content on transition end
+
 # 3.3.0
-> Nov 15, 2017
+> July 04, 2018
 * :tada: **Enhancement** Setting `visibility: hidden` when collapse is closed to prevent screenreaders from reading the content
 
 # 3.1.0

@@ -54,14 +54,15 @@ class Collapse extends Component {
   onTransitionEnd(e) {
     const { onRest, isOpen } = this.props;
 
-    if (isOpen) {
-      this.setExpanded();
-    } else {
-      this.setCollapsed();
-    }
-
-    if (onRest && e.target === this.content && e.propertyName === 'height') {
-      onRest();
+    if (e.target === this.content && e.propertyName === 'height') {
+      if (isOpen) {
+        this.setExpanded();
+      } else {
+        this.setCollapsed();
+      }
+      if (onRest) {
+        onRest();
+      }
     }
   }
 
