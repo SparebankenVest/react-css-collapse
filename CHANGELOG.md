@@ -1,5 +1,9 @@
 # Changelog
 
+# 3.3.2
+> July 05, 2018
+* :bug: **Bugfix** Added nullcheck to make sure we wont try to set style on nonexisting content
+
 # 3.3.1
 > July 05, 2018
 * :bug: **Bugfix** Check if element target equals content on transition end
