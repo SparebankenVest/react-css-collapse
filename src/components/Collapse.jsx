@@ -67,7 +67,9 @@ class Collapse extends Component {
   }
 
   setContentStyleProperty(property, value) {
-    this.content.style[property] = value;
+    if (this.content) {
+      this.content.style[property] = value;
+    }
   }
 
   setCollapsed() {
