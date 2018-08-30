@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import util from '../util';
 
-const initialStyle = {
-  willChange: 'height',
-  height: '0px',
-  overflow: 'hidden',
-  visibility: 'hidden',
-};
-
-class Collapse extends Component {
-  constructor() {
-    super();
+class Collapse extends PureComponent {
+  constructor(props) {
+    super(props);
     this.onTransitionEnd = this.onTransitionEnd.bind(this);
     this.setExpanded = this.setExpanded.bind(this);
     this.setCollapsed = this.setCollapsed.bind(this);
+
+    this.state = {
+      willChange: 'height',
+      height: '0',
+      overflow: 'hidden',
+      visibility: 'hidden',
+    };
   }
 
   componentDidMount() {
@@ -31,22 +31,26 @@ class Collapse extends Component {
     // expand
     if (!this.props.isOpen && nextProps.isOpen) {
       // have the element transition to the height of its inner content
-      this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
-      this.setContentStyleProperty('visibility', 'visible');
+      this.setState({
+        height: `${this.content.scrollHeight}px`,
+        visibility: 'visible',
+      });
     }
 
     // collapse
     if (this.props.isOpen && !nextProps.isOpen) {
       // explicitly set the element's height to its current pixel height, so we
       // aren't transitioning out of 'auto'
-      this.setContentStyleProperty('height', `${this.content.scrollHeight}px`);
+      this.setState({ height: `${this.content.scrollHeight}px` });
       util.requestAnimationFrame(() => {
         // "pausing" the JavaScript execution to let the rendering threads catch up
         // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
         setTimeout(() => {
-          this.setContentStyleProperty('height', '0px');
-          this.setContentStyleProperty('overflow', 'hidden');
-        }, 0);
+          this.setState({
+            height: '0',
+            overflow: 'hidden',
+          });
+        });
       });
     }
   }
@@ -66,20 +70,16 @@ class Collapse extends Component {
     }
   }
 
-  setContentStyleProperty(property, value) {
-    if (this.content) {
-      this.content.style[property] = value;
-    }
-  }
-
   setCollapsed() {
-    this.setContentStyleProperty('visibility', 'hidden');
+    this.setState({ visibility: 'hidden' });
   }
 
   setExpanded() {
-    this.setContentStyleProperty('height', 'auto');
-    this.setContentStyleProperty('overflow', 'visible');
-    this.setContentStyleProperty('visibility', 'visible');
+    this.setState({
+      height: 'auto',
+      overflow: 'visible',
+      visibility: 'visible',
+    });
   }
 
   render() {
@@ -88,7 +88,7 @@ class Collapse extends Component {
         ref={(el) => {
           this.content = el;
         }}
-        style={initialStyle}
+        style={this.state}
         className={this.props.className}
         onTransitionEnd={this.onTransitionEnd}
       >
