@@ -98,6 +98,8 @@ class Collapse extends Component {
   }
 }
 
+Collapse.displayName = 'Collapse';
+
 Collapse.defaultProps = {
   isOpen: false,
   className: null,
