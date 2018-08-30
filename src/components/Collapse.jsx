@@ -102,7 +102,7 @@ Collapse.displayName = 'Collapse';
 
 Collapse.defaultProps = {
   isOpen: false,
-  className: null,
+  className: 'react-css-collapse-transition',
   children: null,
   onRest: null,
 };
