@@ -1,53 +1,49 @@
 import React from 'react';
 import { expect } from 'chai';
 import sinon from 'sinon';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import util from '../../src/util';
 import Collapse from '../../src/components/Collapse';
 
 describe('<Collapse />', () => {
   let requestAnimationFrameStub;
   let setExpandedSpy;
-  let setContentStylePropertySpy;
   let componentDidMountSpy;
   let componentWillReceivePropsSpy;
+
   beforeEach(() => {
     requestAnimationFrameStub = sinon.stub(util, 'requestAnimationFrame');
     setExpandedSpy = sinon.spy(Collapse.prototype, 'setExpanded');
-    setContentStylePropertySpy = sinon.spy(
-      Collapse.prototype,
-      'setContentStyleProperty',
-    );
     componentDidMountSpy = sinon.spy(Collapse.prototype, 'componentDidMount');
     componentWillReceivePropsSpy = sinon.spy(
       Collapse.prototype,
       'componentWillReceiveProps',
     );
   });
+
   afterEach(() => {
     requestAnimationFrameStub.restore();
     setExpandedSpy.restore();
-    setContentStylePropertySpy.restore();
     componentDidMountSpy.restore();
     componentWillReceivePropsSpy.restore();
   });
+
   context('DOM element', () => {
     it('should include className when defined', () => {
       const className = 'collapse';
       expect(
-        mount(<Collapse className={className} />).prop('className'),
+        shallow(<Collapse className={className} />).prop('className'),
       ).to.equal(className);
     });
+
     it('inner block should have height: 0px when collapsed', () => {
-      expect(
-        mount(<Collapse />)
-          .find('div')
-          .props().style.height,
-      ).to.equal('0px');
+      const wrapper = shallow(<Collapse />);
+      expect(wrapper.prop('style').height).to.equal('0');
     });
+
     it('inner block should have height: 0px when open', () => {
-      const wrapper = mount(<Collapse isOpen />);
-      expect(wrapper.find('div').props().style.height).to.equal('0px');
+      const wrapper = shallow(<Collapse isOpen />);
+      expect(wrapper.prop('style').height).to.equal('0');
     });
   });
   context('Component', () => {
@@ -59,35 +55,35 @@ describe('<Collapse />', () => {
       );
       sinon.assert.notCalled(requestAnimationFrameStub);
     });
+
     it('calls componentDidMount and setContentHeight with args auto', () => {
       mount(<Collapse isOpen />);
       sinon.assert.called(Collapse.prototype.componentDidMount);
       expect(Collapse.prototype.setExpanded.calledOnce).to.equal(true);
     });
-    it('calls componentWillReceiveProps when opened and calls setContentHeight', () => {
+
+    it('should update height when isOpen prop is changed to true', () => {
       const wrapper = mount(<Collapse />);
       wrapper.setProps({ isOpen: true });
       sinon.assert.called(Collapse.prototype.componentWillReceiveProps);
-      expect(
-        Collapse.prototype.setContentStyleProperty.calledWith('height', '0px'),
-      ).to.equal(true);
+      expect(wrapper.find('div').prop('style').height).to.equal('0px');
     });
-    it('calls componentWillReceiveProps when opened and calls setContentVisibility', () => {
+
+    it('should update visibility when isOpen prop is changed to true', () => {
       const wrapper = mount(<Collapse />);
       wrapper.setProps({ isOpen: true });
       sinon.assert.called(Collapse.prototype.componentWillReceiveProps);
-      expect(
-        Collapse.prototype.setContentStyleProperty.calledWith('visibility', 'visible'),
-      ).to.equal(true);
+      expect(wrapper.find('div').prop('style').visibility).to.equal('visible');
     });
-    it('calls componentWillReceiveProps when collapsed and calls setContentHeight', () => {
+
+    it('should update the height when isOpen is changed to false', () => {
       const wrapper = mount(<Collapse isOpen />);
       wrapper.setProps({ isOpen: false });
+      wrapper.update();
       sinon.assert.called(Collapse.prototype.componentWillReceiveProps);
-      expect(
-        Collapse.prototype.setContentStyleProperty.calledWith('height', '0px'),
-      ).to.equal(true);
+      expect(wrapper.find('div').prop('style').height).to.equal('0px');
     });
+
     it('calls requestAnimationFrame when collapsed', () => {
       const wrapper = mount(<Collapse isOpen />);
       wrapper.setProps({ isOpen: false });
