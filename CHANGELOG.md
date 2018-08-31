@@ -1,5 +1,12 @@
 # Changelog
 
+# 3.4.0
+> August 31, 2018
+* :tada: **Enhancement** Handle the style changes manually when React can just do this as part of its rendering. Moved the style properties to the state and just uses setState to update them. Changed the test so the actual component styles are checked when they are updated.
+* :tada: **Enhancement** PureComponent is more efficient than Component so changed it to that
+* :tada: **Enhancement** Added a default className — would be nice not to have to pass one if you just want to use the default
+* :bug: **Bugfix** All Component constructors should pass the props through to the super
+
 # 3.3.2
 > July 05, 2018
 * :bug: **Bugfix** Added nullcheck to make sure we wont try to set style on nonexisting content
