@@ -45,7 +45,7 @@ Callback function for when your transition on `height` (specified in `className`
 
 #### `className`: PropType.string
 
-You can specify a className with your desired style and animation
+You can specify a className with your desired style and animation. By default `react-css-collapse-transition` will be added to the component.
 
 ```scss
 .react-css-collapse-transition {
