@@ -1,4 +1,5 @@
-module.exports = function (wallaby) {
+/* eslint global-require: "off" */
+module.exports = function configure(wallaby) {
   return {
     files: [
       'src/**',
@@ -13,8 +14,12 @@ module.exports = function (wallaby) {
     env: {
       type: 'node',
     },
-    setup: function() {
-      var jsdom = require('jsdom');
+    setup() {
+      const jsdom = require('jsdom');
+      const Enzyme = require('enzyme');
+      const Adapter = require('enzyme-adapter-react-16');
+
+      Enzyme.configure({ adapter: new Adapter() });
 
       global.document = jsdom.jsdom('');
       global.window = document.defaultView;
