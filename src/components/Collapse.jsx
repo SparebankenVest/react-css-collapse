@@ -32,7 +32,7 @@ class Collapse extends PureComponent {
     if (!this.props.isOpen && nextProps.isOpen) {
       // have the element transition to the height of its inner content
       this.setState({
-        height: `${this.content.scrollHeight}px`,
+        height: `${this.getHeight()}px`,
         visibility: 'visible',
       });
     }
@@ -41,7 +41,7 @@ class Collapse extends PureComponent {
     if (this.props.isOpen && !nextProps.isOpen) {
       // explicitly set the element's height to its current pixel height, so we
       // aren't transitioning out of 'auto'
-      this.setState({ height: `${this.content.scrollHeight}px` });
+      this.setState({ height: `${this.getHeight()}px` });
       util.requestAnimationFrame(() => {
         // "pausing" the JavaScript execution to let the rendering threads catch up
         // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
@@ -68,6 +68,10 @@ class Collapse extends PureComponent {
         onRest();
       }
     }
+  }
+
+  getHeight() {
+    return this.content.scrollHeight;
   }
 
   setCollapsed() {
