@@ -79,6 +79,11 @@ describe('<Collapse />', () => {
       expect(wrapper.find('div').prop('style').transition).to.equal(transition);
     });
 
+    it('should not add an inline transition if it is not specified', () => {
+      const wrapper = mount(makeWrapper({ isOpen: true }));
+      expect(wrapper.find('div').prop('style').transition).to.equal(null);
+    });
+
     it('calls componentDidMount and setContentHeight with args auto', () => {
       mount(makeWrapper({ isOpen: true }));
       sinon.assert.called(Collapse.prototype.componentDidMount);
