@@ -14,6 +14,7 @@ class Collapse extends PureComponent {
       height: '0',
       overflow: 'hidden',
       visibility: 'hidden',
+      transition: props.transition,
     };
   }
 
@@ -26,6 +27,11 @@ class Collapse extends PureComponent {
   componentWillReceiveProps(nextProps) {
     if (!this.content) {
       return;
+    }
+
+    // If the transition is changed lets update it
+    if (nextProps.transition !== this.props.transition) {
+      this.setState({ transition: nextProps.transition });
     }
 
     // expand
@@ -105,16 +111,18 @@ class Collapse extends PureComponent {
 Collapse.displayName = 'Collapse';
 
 Collapse.defaultProps = {
-  isOpen: false,
-  className: 'react-css-collapse-transition',
   children: null,
+  className: 'react-css-collapse-transition',
+  isOpen: false,
+  transition: null,
   onRest: null,
 };
 
 Collapse.propTypes = {
-  children: PropTypes.node,
-  isOpen: PropTypes.bool,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  isOpen: PropTypes.bool,
+  transition: PropTypes.string,
   onRest: PropTypes.func,
 };
 

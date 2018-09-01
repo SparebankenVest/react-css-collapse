@@ -73,6 +73,12 @@ describe('<Collapse />', () => {
       sinon.assert.notCalled(requestAnimationFrameStub);
     });
 
+    it('should be able to set the transition through the transition prop', () => {
+      const transition = 'height 250ms cubic-bezier(.4, 0, .2, 1)';
+      const wrapper = mount(makeWrapper({ isOpen: true, transition }));
+      expect(wrapper.find('div').prop('style').transition).to.equal(transition);
+    });
+
     it('calls componentDidMount and setContentHeight with args auto', () => {
       mount(makeWrapper({ isOpen: true }));
       sinon.assert.called(Collapse.prototype.componentDidMount);
