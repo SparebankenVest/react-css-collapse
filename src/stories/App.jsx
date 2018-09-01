@@ -34,8 +34,8 @@ class App extends Component {
               </button>
               <Collapse
                 isOpen={this.state.index === index}
-                className="react-css-collapse-transition"
                 onRest={() => action('onRest')}
+                {...this.props.props}
               >
                 <div style={{ background: 'lightpink', padding: '20px' }}>
                   {element.text}
@@ -52,6 +52,10 @@ class App extends Component {
 
 App.propTypes = {
   elements: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  props: PropTypes.shape({
+    className: PropTypes.string,
+    transition: PropTypes.string,
+  }).isRequired,
 };
 
 export default App;
