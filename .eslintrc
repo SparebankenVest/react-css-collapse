@@ -1,19 +1,20 @@
 {
-  'parser': 'babel-eslint',
-  'extends': 'airbnb',
-  'env': {
-    'mocha': true
+  "parser": "babel-eslint",
+  "extends": "airbnb",
+  "plugins": ["jest"],
+  "env": {
+    "jest": true
   },
-  'globals': {
-    'window': true,
-    'document': true
+  "globals": {
+    "window": true,
+    "document": true
   },
-  'rules': {
-    'linebreak-style': 0,
-    'import/no-extraneous-dependencies': 0,
-    'react/require-extension': 0,
-    'react/jsx-filename-extension': [1, { 'extensions': ['.spec.js', '.stories.js', '.jsx'] }],
-    'react/no-unused-prop-types': [2, {skipShapeProps: true}],
-    'import/no-unresolved': [1, { caseSensitive: false }],
+  "rules": {
+    "linebreak-style": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react/require-extension": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".spec.js", ".stories.js", ".jsx"] }],
+    "react/no-unused-prop-types": [2, { "skipShapeProps": true}],
+    "import/no-unresolved": [1, { "caseSensitive": false }]
   }
 }

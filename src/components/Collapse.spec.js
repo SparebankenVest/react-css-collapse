@@ -1,42 +1,38 @@
 import React from 'react';
-import { expect } from 'chai';
-import sinon from 'sinon';
 import { mount, shallow } from 'enzyme';
 import * as fakeRaf from 'fake-raf';
 import util from '../../src/util';
 import Collapse from '../../src/components/Collapse';
 
 describe('<Collapse />', () => {
-  let requestAnimationFrameStub;
+  let requestAnimationFrameSpy;
   let setExpandedSpy;
-  let getHeightStub;
   let componentDidMountSpy;
   let componentWillReceivePropsSpy;
 
-  before(() => {
+  beforeAll(() => {
     fakeRaf.use();
+    Collapse.prototype.getHeight = () => 20;
   });
 
   beforeEach(() => {
-    requestAnimationFrameStub = sinon.stub(util, 'requestAnimationFrame');
-    setExpandedSpy = sinon.spy(Collapse.prototype, 'setExpanded');
-    getHeightStub = sinon.stub(Collapse.prototype, 'getHeight').returns('20');
-    componentDidMountSpy = sinon.spy(Collapse.prototype, 'componentDidMount');
-    componentWillReceivePropsSpy = sinon.spy(
+    requestAnimationFrameSpy = jest.spyOn(util, 'requestAnimationFrame');
+    setExpandedSpy = jest.spyOn(Collapse.prototype, 'setExpanded');
+    componentDidMountSpy = jest.spyOn(Collapse.prototype, 'componentDidMount');
+    componentWillReceivePropsSpy = jest.spyOn(
       Collapse.prototype,
       'componentWillReceiveProps',
     );
   });
 
   afterEach(() => {
-    requestAnimationFrameStub.restore();
-    setExpandedSpy.restore();
-    componentDidMountSpy.restore();
-    componentWillReceivePropsSpy.restore();
-    getHeightStub.restore();
+    requestAnimationFrameSpy.mockRestore();
+    setExpandedSpy.mockRestore();
+    componentDidMountSpy.mockRestore();
+    componentWillReceivePropsSpy.mockRestore();
   });
 
-  after(() => {
+  afterAll(() => {
     fakeRaf.restore();
   });
 
@@ -48,83 +44,82 @@ describe('<Collapse />', () => {
     </Collapse>
   );
 
-  context('DOM element', () => {
+  describe('DOM element', () => {
     it('should include className when defined', () => {
       const className = 'collapse';
       expect(
         shallow(makeWrapper({ isOpen: true, className })).prop('className'),
-      ).to.equal(className);
+      ).toEqual(className);
     });
 
     it('inner block should have height: 0px when collapsed', () => {
       const wrapper = shallow(makeWrapper());
-      expect(wrapper.prop('style').height).to.equal('0');
+      expect(wrapper.prop('style').height).toEqual('0');
     });
 
     it('inner block should have height: 0px when open', () => {
       const wrapper = shallow(makeWrapper({ isOpen: true }));
-      expect(wrapper.prop('style').height).to.equal('0');
+      expect(wrapper.prop('style').height).toEqual('0');
     });
   });
 
-  context('Component', () => {
+  describe('Component', () => {
     it('should not requestAnimationFrame when open', () => {
       mount(makeWrapper({ isOpen: true }));
-      sinon.assert.notCalled(requestAnimationFrameStub);
+      expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
     });
 
     it('should be able to set the transition through the transition prop', () => {
       const transition = 'height 250ms cubic-bezier(.4, 0, .2, 1)';
       const wrapper = mount(makeWrapper({ isOpen: true, transition }));
-      expect(wrapper.find('div').prop('style').transition).to.equal(transition);
+      expect(wrapper.find('div').prop('style').transition).toEqual(transition);
     });
 
     it('should not add an inline transition if it is not specified', () => {
       const wrapper = mount(makeWrapper({ isOpen: true }));
-      expect(wrapper.find('div').prop('style').transition).to.equal(null);
+      expect(wrapper.find('div').prop('style').transition).toEqual(null);
     });
 
     it('calls componentDidMount and setContentHeight with args auto', () => {
       mount(makeWrapper({ isOpen: true }));
-      sinon.assert.called(Collapse.prototype.componentDidMount);
-      expect(Collapse.prototype.setExpanded.calledOnce).to.equal(true);
+      expect(componentDidMountSpy).toHaveBeenCalledTimes(1);
     });
 
     it('should update height when isOpen prop is changed to true', () => {
       const wrapper = mount(makeWrapper());
       wrapper.setProps({ isOpen: true });
-      sinon.assert.called(Collapse.prototype.componentWillReceiveProps);
-      expect(wrapper.find('div').prop('style').height).to.equal('20px');
+      expect(componentWillReceivePropsSpy).toHaveBeenCalled();
+      expect(wrapper.find('div').prop('style').height).toEqual('20px');
     });
 
     it('should update visibility when isOpen prop is changed to true', () => {
       const wrapper = mount(makeWrapper());
       wrapper.setProps({ isOpen: true });
-      sinon.assert.called(Collapse.prototype.componentWillReceiveProps);
-      expect(wrapper.find('div').prop('style').visibility).to.equal('visible');
+      expect(componentWillReceivePropsSpy).toHaveBeenCalled();
+      expect(wrapper.find('div').prop('style').visibility).toEqual('visible');
     });
 
     it('should first set the height from auto to height to 0', (done) => {
-      requestAnimationFrameStub.restore();
+      requestAnimationFrameSpy.mockRestore();
       const wrapper = mount(makeWrapper({ isOpen: true }));
       let styles = wrapper.find('div').prop('style');
-      expect(styles.height).to.equal('auto');
-      expect(styles.overflow).to.equal('visible');
+      expect(styles.height).toEqual('auto');
+      expect(styles.overflow).toEqual('visible');
 
       wrapper.setProps({ isOpen: false });
-      sinon.assert.called(Collapse.prototype.componentWillReceiveProps);
+      expect(componentWillReceivePropsSpy).toHaveBeenCalled();
       styles = wrapper.find('div').prop('style');
       wrapper.update();
 
-      expect(styles.height).to.equal('20px');
-      expect(styles.overflow).to.equal('visible');
+      expect(styles.height).toEqual('20px');
+      expect(styles.overflow).toEqual('visible');
 
       fakeRaf.step();
       setTimeout(() => {
         wrapper.update();
         styles = wrapper.find('div').prop('style');
-        expect(styles.height).to.equal('0');
-        expect(styles.overflow).to.equal('hidden');
+        expect(styles.height).toEqual('0');
+        expect(styles.overflow).toEqual('hidden');
         done();
       });
     });
