@@ -1,4 +1,9 @@
 # Changelog
+# 3.5.0
+> September 3, 2018
+* :nut_and_bolt: **New** Add transition prop
+* :tada: **Enhancement** Use Jest for unit tests
+* :tada: **Enhancement** Add knobs to the stories
 
 # 3.4.0
 > August 31, 2018
