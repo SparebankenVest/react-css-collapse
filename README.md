@@ -5,7 +5,7 @@ Collapse component with css transition for elements with variable and dynamic he
 [![npm version](https://img.shields.io/npm/v/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
 [![npm downloads](https://img.shields.io/npm/dm/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
 
-:warning: ️You need to specify the class selector with style (transition) in your own stylesheet to add animation. You can copy the smashing example below 💅
+:warning: ️You need to specify the transition property or add a class selector with style (transition) in your own stylesheet to add animation. You can copy the smashing example below 💅
 
 ```scss
 .react-css-collapse-transition {
@@ -25,7 +25,7 @@ import Collapse from 'react-css-collapse';
 </Collapse>
 ```
 
-## Options
+## Properties
 
 #### `isOpen`: PropTypes.boolean.isRequired
 
@@ -44,9 +44,6 @@ One or multiple children with static, variable or dynamic height.
 </Collapse>
 ```
 
-#### `onRest`: PropTypes.func
-Callback function for when your transition on `height` (specified in `className`) is finished. It can be used to trigger any function after transition is done.
-
 #### `className`: PropType.string
 
 You can specify a className with your desired style and animation. By default `react-css-collapse-transition` will be added to the component.
@@ -60,6 +57,9 @@ You can also specify a transition in line by using the `transition` prop.
   <p>Paragraph of text</p>
 </Collapse>
 ```
+
+#### `onRest`: PropTypes.func
+Callback function for when your transition on `height` (specified in `className`) is finished. It can be used to trigger any function after transition is done.
 
 ## Development and testing
 To run example covering all features, use `npm run storybook`.
