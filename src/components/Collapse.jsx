@@ -14,6 +14,7 @@ class Collapse extends PureComponent {
       height: '0',
       overflow: 'hidden',
       visibility: 'hidden',
+      transition: props.transition,
     };
   }
 
@@ -28,11 +29,16 @@ class Collapse extends PureComponent {
       return;
     }
 
+    // If the transition is changed lets update it
+    if (nextProps.transition !== this.props.transition) {
+      this.setState({ transition: nextProps.transition });
+    }
+
     // expand
     if (!this.props.isOpen && nextProps.isOpen) {
       // have the element transition to the height of its inner content
       this.setState({
-        height: `${this.content.scrollHeight}px`,
+        height: `${this.getHeight()}px`,
         visibility: 'visible',
       });
     }
@@ -41,7 +47,7 @@ class Collapse extends PureComponent {
     if (this.props.isOpen && !nextProps.isOpen) {
       // explicitly set the element's height to its current pixel height, so we
       // aren't transitioning out of 'auto'
-      this.setState({ height: `${this.content.scrollHeight}px` });
+      this.setState({ height: `${this.getHeight()}px` });
       util.requestAnimationFrame(() => {
         // "pausing" the JavaScript execution to let the rendering threads catch up
         // http://stackoverflow.com/questions/779379/why-is-settimeoutfn-0-sometimes-useful
@@ -68,6 +74,10 @@ class Collapse extends PureComponent {
         onRest();
       }
     }
+  }
+
+  getHeight() {
+    return this.content.scrollHeight;
   }
 
   setCollapsed() {
@@ -101,16 +111,18 @@ class Collapse extends PureComponent {
 Collapse.displayName = 'Collapse';
 
 Collapse.defaultProps = {
-  isOpen: false,
-  className: 'react-css-collapse-transition',
   children: null,
+  className: 'react-css-collapse-transition',
+  isOpen: false,
+  transition: null,
   onRest: null,
 };
 
 Collapse.propTypes = {
-  children: PropTypes.node,
-  isOpen: PropTypes.bool,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  isOpen: PropTypes.bool,
+  transition: PropTypes.string,
   onRest: PropTypes.func,
 };
 

@@ -1,30 +1,25 @@
-module.exports = function (wallaby) {
+/* eslint global-require: "off" */
+module.exports = function configure(wallaby) {
   return {
     files: [
+      'setup.js',
       'src/**',
+      '!src/**/*.spec.js',
     ],
     tests: [
-      'test/**/*.spec.js',
+      'src/**/*.spec.js',
     ],
-    testFramework: 'mocha',
-    compilers: {
-      '**/*.js*': wallaby.compilers.babel(),
-    },
+    testFramework: 'jest',
     env: {
       type: 'node',
     },
-    setup: function() {
-      var jsdom = require('jsdom');
-
-      global.document = jsdom.jsdom('');
-      global.window = document.defaultView;
-
-      Object.keys(document.defaultView).forEach((property) => {
-        if (typeof global[property] === 'undefined') {
-          global[property] = document.defaultView[property];
-        }
-      });
+    compilers: {
+      '**/*.js?(x)': wallaby.compilers.babel(),
     },
-    debug: true,
+    setup(instance) {
+      const jestConfig = require('./package.json').jest;
+
+      instance.testFramework.configure(jestConfig);
+    },
   };
 };

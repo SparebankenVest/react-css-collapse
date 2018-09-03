@@ -51,6 +51,15 @@ Callback function for when your transition on `height` (specified in `className`
 
 You can specify a className with your desired style and animation. By default `react-css-collapse-transition` will be added to the component.
 
+#### `transition`: PropType.string
+
+You can also specify a transition in line by using the `transition` prop.
+
+```js
+<Collapse transition="height 250ms cubic-bezier(.4, 0, .2, 1)">
+  <p>Paragraph of text</p>
+</Collapse>
+```
 
 ## Development and testing
 To run example covering all features, use `npm run storybook`.

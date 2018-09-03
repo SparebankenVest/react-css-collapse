@@ -1,10 +1,4 @@
-import jsdom from 'jsdom';
+const Enzyme = require('enzyme');
+const Adapter = require('enzyme-adapter-react-16');
 
-global.document = jsdom.jsdom('');
-global.window = document.defaultView;
-
-Object.keys(document.defaultView).forEach((property) => {
-  if (typeof global[property] === 'undefined') {
-    global[property] = document.defaultView[property];
-  }
-});
+Enzyme.configure({ adapter: new Adapter() });
