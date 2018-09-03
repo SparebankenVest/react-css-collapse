@@ -94,6 +94,10 @@
       "^.+\\.(js|jsx)$": "babel-jest"
     },
     "setupTestFrameworkScriptFile": "<rootDir>/setup.js",
-    "testURL": "http://localhost/"
+    "testURL": "http://localhost/",
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/node_modules/**"
+    ]
   }
 }
