@@ -1,4 +1,8 @@
 # Changelog
+
+> next
+* :tada: **Feature** Add support for ARIA and data attributes
+
 # 3.5.0
 > September 3, 2018
 * :nut_and_bolt: **New** Add transition prop

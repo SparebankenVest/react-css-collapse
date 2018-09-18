@@ -93,16 +93,18 @@ class Collapse extends PureComponent {
   }
 
   render() {
+    const { className, children, isOpen, transition, onRest, ...attrs } = this.props;
     return (
       <div
         ref={(el) => {
           this.content = el;
         }}
         style={this.state}
-        className={this.props.className}
+        className={className}
         onTransitionEnd={this.onTransitionEnd}
+        {...attrs}
       >
-        {this.props.children && this.props.children}
+        {children || false}
       </div>
     );
   }
