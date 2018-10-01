@@ -61,6 +61,14 @@ describe('<Collapse />', () => {
       const wrapper = shallow(makeWrapper({ isOpen: true }));
       expect(wrapper.prop('style').height).toEqual('0');
     });
+
+    it('should pass data- and aria-props as attributes', () => {
+      const wrapper = shallow(makeWrapper({
+        'aria-hidden': 'true', 'data-any-value': 'xyz',
+      }));
+      expect(wrapper.prop('aria-hidden')).toEqual('true');
+      expect(wrapper.prop('data-any-value')).toEqual('xyz');
+    });
   });
 
   describe('Component', () => {

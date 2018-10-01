@@ -61,6 +61,16 @@ You can also specify a transition in line by using the `transition` prop.
 #### `onRest`: PropTypes.func
 Callback function for when your transition on `height` (specified in `className`) is finished. It can be used to trigger any function after transition is done.
 
+### ARIA and data attributes
+
+`Collapse` transfers `aria-` and `data-` attributes to the component's rendered DOM element. For example this can be used to set the `aria-hidden` attribute:
+
+```js
+<Collapse isOpen={isOpenState} aria-hidden={isOpenState ? 'false' : 'true'}>
+  <p>Paragraph of text</p>
+</Collapse>
+```
+
 ## Development and testing
 To run example covering all features, use `npm run storybook`.
 
