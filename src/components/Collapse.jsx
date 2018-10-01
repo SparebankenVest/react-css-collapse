@@ -93,7 +93,14 @@ class Collapse extends PureComponent {
   }
 
   render() {
-    const { className, children, isOpen, transition, onRest, ...attrs } = this.props;
+    const {
+      className,
+      children,
+      isOpen,
+      transition,
+      onRest,
+      ...attrs
+    } = this.props;
     return (
       <div
         ref={(el) => {
@@ -104,7 +111,7 @@ class Collapse extends PureComponent {
         onTransitionEnd={this.onTransitionEnd}
         {...attrs}
       >
-        {children || false}
+        {children}
       </div>
     );
   }
@@ -121,7 +128,7 @@ Collapse.defaultProps = {
 };
 
 Collapse.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
   isOpen: PropTypes.bool,
   transition: PropTypes.string,
