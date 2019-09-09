@@ -24,19 +24,21 @@ class Collapse extends PureComponent {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate(prevProps) {
     if (!this.content) {
       return;
     }
 
     // If the transition is changed lets update it
-    if (nextProps.transition !== this.props.transition) {
-      this.setState({ transition: nextProps.transition });
+    if (this.props.transition !== prevProps.transition) {
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({ transition: this.props.transition });
     }
 
     // expand
-    if (!this.props.isOpen && nextProps.isOpen) {
+    if (!prevProps.isOpen && this.props.isOpen) {
       // have the element transition to the height of its inner content
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({
         height: `${this.getHeight()}px`,
         visibility: 'visible',
@@ -44,9 +46,10 @@ class Collapse extends PureComponent {
     }
 
     // collapse
-    if (this.props.isOpen && !nextProps.isOpen) {
+    if (prevProps.isOpen && !this.props.isOpen) {
       // explicitly set the element's height to its current pixel height, so we
       // aren't transitioning out of 'auto'
+      // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ height: `${this.getHeight()}px` });
       util.requestAnimationFrame(() => {
         // "pausing" the JavaScript execution to let the rendering threads catch up
