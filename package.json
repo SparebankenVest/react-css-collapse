@@ -1,6 +1,6 @@
 {
   "name": "react-css-collapse",
-  "version": "3.6.0",
+  "version": "3.6.1-beta.0",
   "description": "Component-wrapper for collapse animation with css for elements with variable and dynamic height",
   "author": {
     "name": "Torleif Halseth",
