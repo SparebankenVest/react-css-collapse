@@ -37,9 +37,7 @@ describe('<Collapse />', () => {
   });
 
   const makeWrapper = props => (
-    <Collapse
-      {...props}
-    >
+    <Collapse {...props}>
       <p>Content</p>
     </Collapse>
   );
@@ -63,9 +61,12 @@ describe('<Collapse />', () => {
     });
 
     it('should pass data- and aria-props as attributes', () => {
-      const wrapper = shallow(makeWrapper({
-        'aria-hidden': 'true', 'data-any-value': 'xyz',
-      }));
+      const wrapper = shallow(
+        makeWrapper({
+          'aria-hidden': 'true',
+          'data-any-value': 'xyz',
+        }),
+      );
       expect(wrapper.prop('aria-hidden')).toEqual('true');
       expect(wrapper.prop('data-any-value')).toEqual('xyz');
     });

@@ -20,7 +20,10 @@ storiesOf('Collapse', module)
       elements={elements}
       props={{
         className: text('className', ''),
-        transition: text('transition', 'height 250ms cubic-bezier(.4, 0, .2, 1)'),
+        transition: text(
+          'transition',
+          'height 250ms cubic-bezier(.4, 0, .2, 1)',
+        ),
       }}
     />
   ));
