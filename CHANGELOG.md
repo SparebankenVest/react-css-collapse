@@ -1,5 +1,9 @@
 # Changelog
 
+# 3.6.1-beta.0
+> October 8, 2019
+* :tada: **Enhancement** Migrate away from unsafe `componentWillReceiveProps`
+
 # 3.6.0
 > October 1, 2018
 * :nut_and_bolt: **New** Add support for ARIA and data attributes
