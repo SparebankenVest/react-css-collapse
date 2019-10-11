@@ -5,6 +5,8 @@ Collapse component with css transition for elements with variable and dynamic he
 [![npm version](https://img.shields.io/npm/v/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
 [![npm downloads](https://img.shields.io/npm/dm/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
 
+Demo: [Accordion using react-css-collapse](https://codesandbox.io/embed/accordion-using-react-css-collapse-w5r1e)
+
 :warning: ️You need to specify the transition property or add a class selector with style (transition) in your own stylesheet to add animation. You can copy the smashing example below 💅
 
 ```scss
