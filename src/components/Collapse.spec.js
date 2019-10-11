@@ -8,7 +8,7 @@ describe('<Collapse />', () => {
   let requestAnimationFrameSpy;
   let setExpandedSpy;
   let componentDidMountSpy;
-  let componentWillReceivePropsSpy;
+  let componentDidUpdateSpy;
 
   beforeAll(() => {
     fakeRaf.use();
@@ -19,9 +19,9 @@ describe('<Collapse />', () => {
     requestAnimationFrameSpy = jest.spyOn(util, 'requestAnimationFrame');
     setExpandedSpy = jest.spyOn(Collapse.prototype, 'setExpanded');
     componentDidMountSpy = jest.spyOn(Collapse.prototype, 'componentDidMount');
-    componentWillReceivePropsSpy = jest.spyOn(
+    componentDidUpdateSpy = jest.spyOn(
       Collapse.prototype,
-      'componentWillReceiveProps',
+      'componentDidUpdate',
     );
   });
 
@@ -29,7 +29,7 @@ describe('<Collapse />', () => {
     requestAnimationFrameSpy.mockRestore();
     setExpandedSpy.mockRestore();
     componentDidMountSpy.mockRestore();
-    componentWillReceivePropsSpy.mockRestore();
+    componentDidUpdateSpy.mockRestore();
   });
 
   afterAll(() => {
@@ -96,14 +96,16 @@ describe('<Collapse />', () => {
     it('should update height when isOpen prop is changed to true', () => {
       const wrapper = mount(makeWrapper());
       wrapper.setProps({ isOpen: true });
-      expect(componentWillReceivePropsSpy).toHaveBeenCalled();
+      expect(componentDidUpdateSpy).toHaveBeenCalled();
+      wrapper.update();
       expect(wrapper.find('div').prop('style').height).toEqual('20px');
     });
 
     it('should update visibility when isOpen prop is changed to true', () => {
       const wrapper = mount(makeWrapper());
       wrapper.setProps({ isOpen: true });
-      expect(componentWillReceivePropsSpy).toHaveBeenCalled();
+      expect(componentDidUpdateSpy).toHaveBeenCalled();
+      wrapper.update();
       expect(wrapper.find('div').prop('style').visibility).toEqual('visible');
     });
 
@@ -115,7 +117,8 @@ describe('<Collapse />', () => {
       expect(styles.overflow).toEqual('visible');
 
       wrapper.setProps({ isOpen: false });
-      expect(componentWillReceivePropsSpy).toHaveBeenCalled();
+      expect(componentDidUpdateSpy).toHaveBeenCalled();
+      wrapper.update();
       styles = wrapper.find('div').prop('style');
       wrapper.update();
 
