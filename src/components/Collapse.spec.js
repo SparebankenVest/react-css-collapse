@@ -108,7 +108,6 @@ describe('<Collapse />', () => {
       act(() => {
         const wrapper = mount(makeWrapper());
         wrapper.setProps({ isOpen: true });
-        console.log(wrapper.props());
         expect(wrapper.find('div').prop('style').height).toEqual('20px');
       });
     });
@@ -118,7 +117,6 @@ describe('<Collapse />', () => {
         const wrapper = mount(makeWrapper());
         wrapper.setProps({ isOpen: true });
         expect(jest.fn()).toHaveBeenCalledTimes(1);
-        console.log(wrapper.props());
         expect(wrapper.find('div').prop('style').visibility).toEqual('visible');
       });
     });
@@ -131,7 +129,7 @@ describe('<Collapse />', () => {
         expect(styles.height).toEqual('auto');
         expect(styles.overflow).toEqual('visible');
 
-        wrapper.setProps({ isOpen: false }, console.log);
+        wrapper.setProps({ isOpen: false });
         // wrapper.update();
         styles = wrapper.find('div').prop('style');
 
