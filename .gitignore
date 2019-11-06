@@ -8,3 +8,5 @@ node_modules
 *.tgz
 
 npm-debug*
+
+/.idea
