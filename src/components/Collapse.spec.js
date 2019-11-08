@@ -101,7 +101,7 @@ describe('<Collapse />', () => {
      */
     xit('calls componentDidMount and setContentHeight with args auto', () => {
       mount(makeWrapper({ isOpen: true }));
-      expect(useCollapseSpy).toHaveBeenCalledTimes(1);
+      expect(jest.fn()).toHaveBeenCalledTimes(1);
     });
 
     xit('should update height when isOpen prop is changed to true', () => {
