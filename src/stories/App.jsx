@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import { action } from '@storybook/addon-actions';
+import {action} from '@storybook/addon-actions';
 import Collapse from '../components/Collapse';
 import './style.css';
 
@@ -12,32 +12,37 @@ class App extends Component {
     };
     this.setIndex = this.setIndex.bind(this);
   }
-  setIndex(index) {
-    if (this.state.index !== index) {
-      this.setState({ index });
+
+  setIndex(i) {
+    const {index} = this.state;
+    if (index !== i) {
+      this.setState({index: i});
     } else {
-      this.setState({ index: null });
+      this.setState({index: null});
     }
   }
+
   render() {
+    const {elements, props} = this.props;
+    const {index} = this.state;
     return (
       <main>
         <section>
-          {this.props.elements.map((element, index) => (
+          {elements.map((element, i) => (
             <div key={`element-collapse-element-${element.name}`}>
               <button
-                onClick={() => this.setIndex(index)}
-                style={{ width: '100%' }}
+                onClick={() => this.setIndex(i)}
+                style={{width: '100%'}}
                 type="button"
               >
                 {element.name}
               </button>
               <Collapse
-                isOpen={this.state.index === index}
+                isOpen={index === i}
                 onRest={() => action('onRest')}
-                {...this.props.props}
+                {...props}
               >
-                <div style={{ background: 'lightpink', padding: '20px' }}>
+                <div style={{background: 'lightpink', padding: '20px'}}>
                   {element.text}
                 </div>
               </Collapse>

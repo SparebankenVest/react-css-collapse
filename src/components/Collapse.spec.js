@@ -1,12 +1,12 @@
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import { act } from 'react-dom/test-utils';
+import {act} from 'react-dom/test-utils';
 import * as fakeRaf from 'fake-raf';
-import util from '../../src/util';
-import Collapse from '../../src/components/Collapse';
+import util from '../util';
+import Collapse from './Collapse';
 
-Enzyme.configure({ adapter: new Adapter() });
+Enzyme.configure({adapter: new Adapter()});
 
 describe('<Collapse />', () => {
   let requestAnimationFrameSpy;
@@ -38,7 +38,7 @@ describe('<Collapse />', () => {
       const className = 'collapse';
       act(() => {
         expect(
-          mount(makeWrapper({ isOpen: true, className })).prop('className'),
+          mount(makeWrapper({isOpen: true, className})).prop('className'),
         ).toEqual(className);
       });
     });
@@ -51,7 +51,7 @@ describe('<Collapse />', () => {
     });
 
     it('inner block should have height: 0px when open', () => {
-      const wrapper = mount(makeWrapper({ isOpen: true }));
+      const wrapper = mount(makeWrapper({isOpen: true}));
       act(() => {
         expect(wrapper.find('div').prop('style').height).toEqual('0px');
       });
@@ -74,7 +74,7 @@ describe('<Collapse />', () => {
   describe('Component', () => {
     it('should not requestAnimationFrame when open', () => {
       act(() => {
-        mount(makeWrapper({ isOpen: true }));
+        mount(makeWrapper({isOpen: true}));
         expect(requestAnimationFrameSpy).not.toHaveBeenCalled();
       });
     });
@@ -82,7 +82,7 @@ describe('<Collapse />', () => {
     it('should be able to set the transition through the transition prop', () => {
       const transition = 'height 250ms cubic-bezier(.4, 0, .2, 1)';
       act(() => {
-        const wrapper = mount(makeWrapper({ isOpen: true, transition }));
+        const wrapper = mount(makeWrapper({isOpen: true, transition}));
         expect(wrapper.find('div').prop('style').transition).toEqual(
           transition,
         );
@@ -91,7 +91,7 @@ describe('<Collapse />', () => {
 
     it('should not add an inline transition if it is not specified', () => {
       act(() => {
-        const wrapper = mount(makeWrapper({ isOpen: true }));
+        const wrapper = mount(makeWrapper({isOpen: true}));
         expect(wrapper.find('div').prop('style').transition).toEqual(null);
       });
     });
@@ -100,14 +100,14 @@ describe('<Collapse />', () => {
      * No longer valid as we're migrating away from lifecycles
      */
     xit('calls componentDidMount and setContentHeight with args auto', () => {
-      mount(makeWrapper({ isOpen: true }));
+      mount(makeWrapper({isOpen: true}));
       expect(jest.fn()).toHaveBeenCalledTimes(1);
     });
 
     xit('should update height when isOpen prop is changed to true', () => {
       act(() => {
         const wrapper = mount(makeWrapper());
-        wrapper.setProps({ isOpen: true });
+        wrapper.setProps({isOpen: true});
         expect(wrapper.find('div').prop('style').height).toEqual('20px');
       });
     });
@@ -115,21 +115,21 @@ describe('<Collapse />', () => {
     xit('should update visibility when isOpen prop is changed to true', () => {
       act(() => {
         const wrapper = mount(makeWrapper());
-        wrapper.setProps({ isOpen: true });
+        wrapper.setProps({isOpen: true});
         expect(jest.fn()).toHaveBeenCalledTimes(1);
         expect(wrapper.find('div').prop('style').visibility).toEqual('visible');
       });
     });
 
-    xit('should first set the height from auto to height to 0', (done) => {
+    xit('should first set the height from auto to height to 0', done => {
       act(() => {
         requestAnimationFrameSpy.mockRestore();
-        const wrapper = mount(makeWrapper({ isOpen: true }));
+        const wrapper = mount(makeWrapper({isOpen: true}));
         let styles = wrapper.find('div').prop('style');
         expect(styles.height).toEqual('auto');
         expect(styles.overflow).toEqual('visible');
 
-        wrapper.setProps({ isOpen: false });
+        wrapper.setProps({isOpen: false});
         // wrapper.update();
         styles = wrapper.find('div').prop('style');
 
