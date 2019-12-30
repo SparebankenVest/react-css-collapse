@@ -52,9 +52,9 @@
     "react-dom": "15.x || 16.x"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.12",
-    "@storybook/addon-knobs": "^3.4.12",
-    "@storybook/react": "^3.4.12",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-knobs": "^5.2.8",
+    "@storybook/react": "^5.2.8",
     "babel-cli": "^6.24.0",
     "babel-eslint": "^8.2.5",
     "babel-jest": "^23.6.0",
@@ -107,5 +107,13 @@
       "**/*.{js,jsx}",
       "!**/node_modules/**"
     ]
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "parser": "babel",
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 80,
+    "tabWidth": 2
   }
 }

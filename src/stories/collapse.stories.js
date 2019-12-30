@@ -1,8 +1,8 @@
 import React from 'react';
-import {storiesOf} from '@storybook/react';
-import {withKnobs, text} from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import App from './App';
-import {elements} from '../data';
+import { elements } from '../data';
 
 storiesOf('Collapse', module)
   .addDecorator(withKnobs)

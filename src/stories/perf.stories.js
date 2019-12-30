@@ -1,8 +1,8 @@
 import React from 'react';
-import {storiesOf} from '@storybook/react';
-import {withKnobs, text} from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import App from './App';
-import {createElements} from '../data';
+import { createElements } from '../data';
 
 const elements = createElements(1000);
 storiesOf('Collapse', module)

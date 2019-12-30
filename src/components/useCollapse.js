@@ -1,6 +1,6 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 
-const useCollapse = ({transition, isOpen, content}) => {
+const useCollapse = ({ transition, isOpen, content }) => {
   const [height, setHeight] = useState('0');
   const [overflow, setOverflow] = useState('hidden');
   const [visibility, setVisibility] = useState('hidden');

@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {action} from '@storybook/addon-actions';
+import { action } from '@storybook/addon-actions';
 import Collapse from '../components/Collapse';
 import './style.css';
 
@@ -14,17 +14,17 @@ class App extends Component {
   }
 
   setIndex(i) {
-    const {index} = this.state;
+    const { index } = this.state;
     if (index !== i) {
-      this.setState({index: i});
+      this.setState({ index: i });
     } else {
-      this.setState({index: null});
+      this.setState({ index: null });
     }
   }
 
   render() {
-    const {elements, props} = this.props;
-    const {index} = this.state;
+    const { elements, props } = this.props;
+    const { index } = this.state;
     return (
       <main>
         <section>
@@ -32,7 +32,7 @@ class App extends Component {
             <div key={`element-collapse-element-${element.name}`}>
               <button
                 onClick={() => this.setIndex(i)}
-                style={{width: '100%'}}
+                style={{ width: '100%' }}
                 type="button"
               >
                 {element.name}
@@ -42,7 +42,7 @@ class App extends Component {
                 onRest={() => action('onRest')}
                 {...props}
               >
-                <div style={{background: 'lightpink', padding: '20px'}}>
+                <div style={{ background: 'lightpink', padding: '20px' }}>
                   {element.text}
                 </div>
               </Collapse>

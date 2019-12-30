@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import useCollapse from './useCollapse';
 
@@ -11,7 +11,11 @@ const Collapse = ({
   ...attrs
 }) => {
   const content = useRef(null);
-  const {expand, collapse, style} = useCollapse({transition, isOpen, content});
+  const { expand, collapse, style } = useCollapse({
+    transition,
+    isOpen,
+    content,
+  });
 
   const onTransitionEnd = e => {
     if (e.target === content && e.propertyName === 'height') {
