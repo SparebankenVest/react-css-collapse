@@ -46,14 +46,14 @@ describe('<Collapse />', () => {
     it('inner block should have height: 0px when collapsed', () => {
       const wrapper = mount(makeWrapper());
       act(() => {
-        expect(wrapper.find('div').prop('style').height).toEqual('0');
+        expect(wrapper.find('div').prop('style').height).toEqual('0px');
       });
     });
 
     it('inner block should have height: 0px when open', () => {
       const wrapper = mount(makeWrapper({ isOpen: true }));
       act(() => {
-        expect(wrapper.find('div').prop('style').height).toEqual('0');
+        expect(wrapper.find('div').prop('style').height).toEqual('0px');
       });
     });
 
