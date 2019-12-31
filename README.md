@@ -5,9 +5,13 @@ Collapse component with css transition for elements with variable and dynamic he
 [![npm version](https://img.shields.io/npm/v/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
 [![npm downloads](https://img.shields.io/npm/dm/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
 
-Demo: [Accordion using react-css-collapse](https://codesandbox.io/embed/accordion-using-react-css-collapse-w5r1e)
+## Demo
+### - [Accordion using react-css-collapse](https://codesandbox.io/embed/accordion-using-react-css-collapse-w5r1e)
 
-:warning: ️You need to specify the transition property or add a class selector with style (transition) in your own stylesheet to add animation. You can copy the smashing example below 💅
+You can specify transition using the style prop or a class selector with transition.
+The `react-css-collapse-transition` class selector is added by default unless you specify your own. 
+
+🙈 Note: Remember to specify the style if you are using the default selector👇
 
 ```scss
 .react-css-collapse-transition {
@@ -29,13 +33,11 @@ import Collapse from 'react-css-collapse';
 
 ## Properties
 
-#### `isOpen`: PropTypes.boolean.isRequired
+#### `isOpen`: PropTypes.boolean
 
 Expands or collapses content.
 
-#### `children`: PropTypes.node.isRequired
-
-One or multiple children with static, variable or dynamic height.
+#### `children`: PropTypes.node
 
 ```js
 <Collapse isOpen={true}>
@@ -48,18 +50,7 @@ One or multiple children with static, variable or dynamic height.
 
 #### `className`: PropType.string
 
-You can specify a className with your desired style and animation. By default `react-css-collapse-transition` will be added to the component.
-
-#### `transition`: PropType.string
-
-You can also specify a transition in line by using the `transition` prop.
-
-```js
-<Collapse transition="height 250ms cubic-bezier(.4, 0, .2, 1)">
-  <p>Paragraph of text</p>
-</Collapse>
-```
-
+You can specify a className with your desired style and transition (animation).
 #### `onRest`: PropTypes.func
 Callback function for when your transition on `height` (specified in `className`) is finished. It can be used to trigger any function after transition is done.
 

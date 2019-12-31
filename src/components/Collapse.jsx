@@ -1,14 +1,14 @@
 import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
+import { string, bool, func, object } from 'prop-types';
 import useCollapse from './useCollapse';
 
 const Collapse = ({
-  children,
-  className,
   isOpen,
-  transition,
   onRest,
-  ...attrs
+  style: initialStyle,
+  transition,
+  className,
+  ...rest
 }) => {
   const content = useRef();
   const { setIsExpandedStyle, setIsCollapsedStyle, style } = useCollapse({
@@ -29,33 +29,35 @@ const Collapse = ({
     }
   };
 
+  const styles = {
+    willChange: 'height',
+    transition,
+    ...initialStyle,
+    ...style,
+  };
+
   return (
     <div
       ref={content}
-      style={{ ...style, transition }}
+      style={styles}
       className={className}
       onTransitionEnd={onTransitionEnd}
-      {...attrs}
-    >
-      {children}
-    </div>
+      {...rest}
+    />
   );
 };
 
 Collapse.defaultProps = {
-  children: null,
-  className: 'react-css-collapse-transition',
   isOpen: false,
-  transition: null,
-  onRest: null,
+  className: 'react-css-collapse-transition',
 };
 
 Collapse.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  isOpen: PropTypes.bool,
-  transition: PropTypes.string,
-  onRest: PropTypes.func,
+  isOpen: bool,
+  onRest: func,
+  style: object,
+  className: string,
+  transition: string,
 };
 
 export default Collapse;

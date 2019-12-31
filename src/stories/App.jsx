@@ -21,7 +21,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      index: 0,
+      index: props.initialIndex,
     };
     this.setIndex = this.setIndex.bind(this);
   }
@@ -73,7 +73,7 @@ App.propTypes = {
   props: PropTypes.shape({
     className: PropTypes.string,
     transition: PropTypes.string,
-  }).isRequired,
+  }),
 };
 
 export default App;
