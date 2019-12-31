@@ -10,19 +10,18 @@ const Collapse = ({
   onRest,
   ...attrs
 }) => {
-  const content = useRef(null);
-  const { expand, collapse, style } = useCollapse({
-    transition,
+  const content = useRef();
+  const { setIsExpandedStyle, setIsCollapsedStyle, style } = useCollapse({
     isOpen,
     content,
   });
 
   const onTransitionEnd = e => {
-    if (e.target === content && e.propertyName === 'height') {
+    if (e.target === content.current && e.propertyName === 'height') {
       if (isOpen) {
-        expand();
+        setIsExpandedStyle();
       } else {
-        collapse();
+        setIsCollapsedStyle();
       }
       if (onRest) {
         onRest();
@@ -33,7 +32,7 @@ const Collapse = ({
   return (
     <div
       ref={content}
-      style={style}
+      style={{ ...style, transition }}
       className={className}
       onTransitionEnd={onTransitionEnd}
       {...attrs}
@@ -42,8 +41,6 @@ const Collapse = ({
     </div>
   );
 };
-
-Collapse.displayName = 'Collapse';
 
 Collapse.defaultProps = {
   children: null,

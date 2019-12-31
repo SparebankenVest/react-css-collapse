@@ -50,10 +50,10 @@ describe('<Collapse />', () => {
       });
     });
 
-    it('inner block should have height: 0px when open', () => {
+    it('inner block should have height: auto when open', () => {
       const wrapper = mount(makeWrapper({ isOpen: true }));
       act(() => {
-        expect(wrapper.find('div').prop('style').height).toEqual('0px');
+        expect(wrapper.find('div').prop('style').height).toEqual('auto');
       });
     });
 

@@ -1,34 +1,30 @@
 import { useEffect, useState } from 'react';
 
-const useCollapse = ({ transition, isOpen, content }) => {
+const useCollapse = ({ isOpen, content }) => {
   const [height, setHeight] = useState('0');
   const [overflow, setOverflow] = useState('hidden');
   const [visibility, setVisibility] = useState('hidden');
+  const [isFirstRender, setIsFirstRender] = useState(true);
 
-  const expand = () => {
+  const setIsExpandedStyle = () => {
     setHeight('auto');
     setOverflow('visible');
     setVisibility('visible');
   };
 
-  const collapse = () => {
+  const setIsCollapsedStyle = () => {
     setVisibility('hidden');
   };
 
   const getHeight = () => `${content.current.scrollHeight}px`;
 
   useEffect(() => {
-    if (content && isOpen) {
-      expand();
-    }
-  }, [content]);
-
-  useEffect(() => {
-    if (!content.current) {
-      return;
-    }
     if (isOpen) {
-      setHeight(getHeight());
+      if (isFirstRender) {
+        setHeight('auto');
+      } else {
+        setHeight(getHeight());
+      }
       setVisibility('visible');
     } else {
       setHeight(getHeight());
@@ -41,14 +37,17 @@ const useCollapse = ({ transition, isOpen, content }) => {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    setIsFirstRender(false);
+  }, []);
+
   return {
-    expand,
-    collapse,
+    setIsExpandedStyle,
+    setIsCollapsedStyle,
     style: {
       overflow,
       visibility,
       height,
-      transition,
     },
   };
 };
