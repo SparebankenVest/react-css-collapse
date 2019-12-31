@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { string, bool, func, object } from 'prop-types';
+import { string, bool, func, shape } from 'prop-types';
 import useCollapse from './useCollapse';
 
 const Collapse = ({
@@ -49,13 +49,16 @@ const Collapse = ({
 
 Collapse.defaultProps = {
   isOpen: false,
+  onRest: undefined,
+  style: undefined,
   className: 'react-css-collapse-transition',
+  transition: undefined,
 };
 
 Collapse.propTypes = {
   isOpen: bool,
   onRest: func,
-  style: object,
+  style: shape({}),
   className: string,
   transition: string,
 };

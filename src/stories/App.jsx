@@ -68,12 +68,18 @@ class App extends Component {
   }
 }
 
+App.defaultProps = {
+  props: undefined,
+  initialIndex: undefined,
+};
+
 App.propTypes = {
   elements: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   props: PropTypes.shape({
     className: PropTypes.string,
     transition: PropTypes.string,
   }),
+  initialIndex: PropTypes.number,
 };
 
 export default App;
