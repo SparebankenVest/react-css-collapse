@@ -1,8 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Collapse from '../components/Collapse';
 import './style.css';
+import { text } from '../data';
+
+const Content = () => {
+  const [content, setContent] = useState([text[0]]);
+  return (
+    <section>
+      <button type="button" onClick={() => setContent([...content, text[0]])}>
+        Add content
+      </button>
+      <p>{content}</p>
+    </section>
+  );
+};
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +56,7 @@ class App extends Component {
                 {...props}
               >
                 <div style={{ background: 'lightpink', padding: '20px' }}>
-                  {element.text}
+                  <Content />
                 </div>
               </Collapse>
             </div>
