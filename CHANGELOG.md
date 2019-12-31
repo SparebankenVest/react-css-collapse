@@ -1,5 +1,13 @@
 # Changelog
 
+# 4.0.0
+> Desember 31, 2019
+* :boom: **Breaking** Upgraded React peerDependencies to >= 16.8
+* :nut_and_bolt: **New** Added new hook useCollapse
+* :nut_and_bolt: **New** Updated Collapse to use new hook.
+* :tada: **Enhancement** Add dynamic content to storybook example
+* :tada: **Enhancement** Update prettier and eslint setup
+
 # 3.6.1
 > October 11, 2019
 * :tada: **Enhancement** Migrate away from unsafe `componentWillReceiveProps`
