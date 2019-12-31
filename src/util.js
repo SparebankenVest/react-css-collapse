@@ -1,4 +1,4 @@
-const requestAnimationFrame = (func) => {
+const requestAnimationFrame = func => {
   window.requestAnimationFrame(func);
 };
 

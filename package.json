@@ -1,6 +1,6 @@
 {
   "name": "react-css-collapse",
-  "version": "3.6.1",
+  "version": "4.0.0",
   "description": "Component-wrapper for collapse animation with css for elements with variable and dynamic height",
   "author": {
     "name": "Torleif Halseth",
@@ -39,46 +39,48 @@
     "clean": "rm -rf lib",
     "build": "npm test && npm run eslint && npm run clean && npm run babel",
     "eslint": "eslint --ext .jsx,.js src/",
-    "eslint:fix": "eslint --ext .jsx,.js src/ --fix",
     "prettier-eslint": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.jsx\"",
+    "format": "prettier --write \"src/**/*.js\" \"src/**/*.jsx\"",
+    "fix": "npx eslint  --fix src --ext .js --ext .jsx",
     "prepublish": "npm run build",
     "start": "npm run babel -- -w",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "react": "15.x || 16.x",
-    "react-dom": "15.x || 16.x"
+    "react": ">=16.8",
+    "react-dom": ">=16.8"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^3.4.8",
-    "@storybook/addon-knobs": "^3.4.10",
-    "@storybook/react": "^3.4.8",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-knobs": "^5.2.8",
+    "@storybook/react": "^5.2.8",
     "babel-cli": "^6.24.0",
     "babel-eslint": "^8.2.5",
-    "babel-jest": "^23.4.2",
+    "babel-jest": "^23.6.0",
     "babel-loader": "^7.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.19.0",
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-1": "^6.13.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb": "^15.1.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jest": "^21.22.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.10.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jest": "^22.21.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "fake-raf": "^1.0.1",
-    "jest": "^23.5.0",
-    "prettier": "^1.13.7",
-    "prettier-eslint": "^8.8.2",
-    "prettier-eslint-cli": "^4.7.1",
-    "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1"
+    "jest": "^23.6.0",
+    "prettier": "^1.19.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "directories": {
     "test": "test"
@@ -105,5 +107,13 @@
       "**/*.{js,jsx}",
       "!**/node_modules/**"
     ]
+  },
+  "prettier": {
+    "endOfLine": "lf",
+    "parser": "babel",
+    "singleQuote": true,
+    "trailingComma": "all",
+    "printWidth": 80,
+    "tabWidth": 2
   }
 }

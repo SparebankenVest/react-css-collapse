@@ -1,7 +1,0 @@
-{
-  "parser": "babylon",
-  "bracketSpacing": false,
-  "singleQuote": true,
-  "trailingComma": "all",
-  "printWidth": 80
-}
