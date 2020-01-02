@@ -12,7 +12,7 @@ Collapse component with css transition for elements with variable and dynamic he
 [![rc-collapse](https://nodei.co/npm/react-css-collapse.png)](https://npmjs.org/package/react-css-collapse)
 
 ## Support
-Browserslist - [> 0.25%, not dead](https://browserl.ist/?q=%3E+0.25%25%2C+not+dead)
+Global coverage > 90% - [browserl.ist](https://browserl.ist/?q=%22%3E0.2%25%22%2C%22not+dead%22%2C%22not+ie+%3C%3D+11%22%2C%22not+op_mini+all%22%2C%22ios_saf+%3E%3D+10%22)
 
 ## Usage
 
