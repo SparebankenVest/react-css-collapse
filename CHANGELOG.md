@@ -1,5 +1,13 @@
 # Changelog
 
+# 4.0.2
+> January 2, 2020
+* :tada: **Enhancement** Update build and use browserlist
+
+# 4.0.1
+> Desember 31, 2019
+* :tada: **Enhancement** Add willChange: height, add stories and prettify component
+
 # 4.0.0
 > Desember 31, 2019
 * :boom: **Breaking** Upgraded React peerDependencies to >= 16.8
