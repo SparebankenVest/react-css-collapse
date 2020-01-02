@@ -28,6 +28,7 @@ describe('<Collapse />', () => {
   });
 
   const makeWrapper = props => (
+    // eslint-disable-next-line react/jsx-props-no-spreading
     <Collapse {...props}>
       <p>Content</p>
     </Collapse>

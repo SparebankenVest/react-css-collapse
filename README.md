@@ -5,29 +5,22 @@ Collapse component with css transition for elements with variable and dynamic he
 [![npm version](https://img.shields.io/npm/v/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
 [![npm downloads](https://img.shields.io/npm/dm/react-css-collapse.svg?style=flat-square)](https://www.npmjs.com/package/react-css-collapse)
 
-## Demo
-### - [Accordion using react-css-collapse](https://codesandbox.io/embed/accordion-using-react-css-collapse-w5r1e)
+## Example
+### [Accordion using react-css-collapse](https://codesandbox.io/embed/accordion-using-react-css-collapse-w5r1e)
 
-You can specify transition using the style prop or a class selector with transition.
-The `react-css-collapse-transition` class selector is added by default unless you specify your own. 
+## Install
+[![rc-collapse](https://nodei.co/npm/react-css-collapse.png)](https://npmjs.org/package/react-css-collapse)
 
-🙈 Note: Remember to specify the style if you are using the default selector👇
+## Support
+Browserslist - [> 0.25%, not dead](https://browserl.ist/?q=%3E+0.25%25%2C+not+dead)
 
-```scss
-.react-css-collapse-transition {
-  transition: height 250ms cubic-bezier(.4, 0, .2, 1);
-}
-```
+## Usage
 
-## Installation
-
-`npm install --save react-css-collapse`
-
-```js
+```jsx
 import Collapse from 'react-css-collapse';
 
 <Collapse isOpen={true || false}>
-  <div>Random content</div>
+  <div>content</div>
 </Collapse>
 ```
 
@@ -49,8 +42,15 @@ Expands or collapses content.
 ```
 
 #### `className`: PropType.string
+Specify transition using the class selector with transition or the style property.
+The `react-css-collapse-transition` class selector is added by default unless you specify your own. Note: Remember to include the style if you are using the default selector 👇
 
-You can specify a className with your desired style and transition (animation).
+```scss
+.react-css-collapse-transition {
+  transition: height 250ms cubic-bezier(.4, 0, .2, 1);
+}
+```
+
 #### `onRest`: PropTypes.func
 Callback function for when your transition on `height` (specified in `className`) is finished. It can be used to trigger any function after transition is done.
 

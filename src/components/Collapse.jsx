@@ -42,6 +42,7 @@ const Collapse = ({
       style={styles}
       className={className}
       onTransitionEnd={onTransitionEnd}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     />
   );
