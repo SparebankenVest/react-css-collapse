@@ -53,6 +53,7 @@ class App extends Component {
               <Collapse
                 isOpen={index === i}
                 onRest={() => action('onRest')}
+                // eslint-disable-next-line react/jsx-props-no-spreading
                 {...props}
               >
                 <div style={{ background: 'lightpink', padding: '20px' }}>

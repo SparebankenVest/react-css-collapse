@@ -2,15 +2,15 @@ import React, { useRef } from 'react';
 import { string, bool, func, shape } from 'prop-types';
 import useCollapse from './useCollapse';
 
-const Collapse = ({
+function Collapse({
   isOpen,
   onRest,
   style: initialStyle,
   transition,
   className,
   ...rest
-}) => {
-  const content = useRef();
+}) {
+  const content = useRef(null);
   const { setIsExpandedStyle, setIsCollapsedStyle, style } = useCollapse({
     isOpen,
     content,
@@ -42,17 +42,18 @@ const Collapse = ({
       style={styles}
       className={className}
       onTransitionEnd={onTransitionEnd}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...rest}
     />
   );
-};
+}
 
 Collapse.defaultProps = {
   isOpen: false,
-  onRest: undefined,
-  style: undefined,
+  onRest: null,
+  style: null,
   className: 'react-css-collapse-transition',
-  transition: undefined,
+  transition: null,
 };
 
 Collapse.propTypes = {

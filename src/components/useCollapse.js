@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
 
+function getHeight(content) {
+  if (content && content.current && content.current.scrollHeight) {
+    return `${content.current.scrollHeight}px`;
+  }
+  return '0px';
+}
+
 const useCollapse = ({ isOpen, content }) => {
   const [height, setHeight] = useState('0');
   const [overflow, setOverflow] = useState('hidden');
@@ -16,18 +23,16 @@ const useCollapse = ({ isOpen, content }) => {
     setVisibility('hidden');
   };
 
-  const getHeight = () => `${content.current.scrollHeight}px`;
-
   useEffect(() => {
     if (isOpen) {
+      setVisibility('visible');
       if (isFirstRender) {
         setHeight('auto');
       } else {
-        setHeight(getHeight());
+        setHeight(getHeight(content));
       }
-      setVisibility('visible');
     } else {
-      setHeight(getHeight());
+      setHeight(getHeight(content));
       window.requestAnimationFrame(() => {
         setTimeout(() => {
           setHeight('0');
