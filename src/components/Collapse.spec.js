@@ -93,7 +93,7 @@ describe('<Collapse />', () => {
     it('should not add an inline transition if it is not specified', () => {
       act(() => {
         const wrapper = mount(makeWrapper({ isOpen: true }));
-        expect(wrapper.find('div').prop('style').transition).toEqual(undefined);
+        expect(wrapper.find('div').prop('style').transition).toEqual(null);
       });
     });
 
