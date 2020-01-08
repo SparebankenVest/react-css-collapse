@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapse default 1`] = `
+<DocumentFragment>
+  <div
+    class="react-css-collapse-transition"
+    style="will-change: height; overflow: hidden; visibility: hidden; height: 0px;"
+  />
+</DocumentFragment>
+`;
+
+exports[`Collapse when open 1`] = `
+<DocumentFragment>
+  <div
+    class="react-css-collapse-transition"
+    style="will-change: height; overflow: hidden; visibility: visible; height: auto;"
+  />
+</DocumentFragment>
+`;
+
+exports[`Collapse with aria and data props 1`] = `
+<DocumentFragment>
+  <div
+    aria-hidden="true"
+    class="react-css-collapse-transition"
+    data-any-value="1337"
+    style="will-change: height; overflow: hidden; visibility: hidden; height: 0px;"
+  />
+</DocumentFragment>
+`;
+
+exports[`Collapse with children 1`] = `
+<DocumentFragment>
+  <div
+    class="react-css-collapse-transition"
+    style="will-change: height; overflow: hidden; visibility: hidden; height: 0px;"
+  >
+    children
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Collapse with class 1`] = `
+<DocumentFragment>
+  <div
+    class="className"
+    style="will-change: height; overflow: hidden; visibility: hidden; height: 0px;"
+  />
+</DocumentFragment>
+`;
+
+exports[`Collapse with style 1`] = `
+<DocumentFragment>
+  <div
+    class="react-css-collapse-transition"
+    style="will-change: height; transition: height 1337ms cubic-bezier(.4, 0, .2, 1); overflow: hidden; visibility: hidden; height: 0px;"
+  />
+</DocumentFragment>
+`;
+
+exports[`Collapse with transition prop 1`] = `
+<DocumentFragment>
+  <div
+    class="react-css-collapse-transition"
+    style="will-change: height; transition: height 1337ms cubic-bezier(.4, 0, .2, 1); overflow: hidden; visibility: hidden; height: 0px;"
+  />
+</DocumentFragment>
+`;
