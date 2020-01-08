@@ -1,5 +1,9 @@
 # Changelog
 
+# 4.0.3
+> January 8, 2020
+* :tada: **Enhancement** Rewrite tests to use jest snapshots and @testing-library/react
+
 # 4.0.2
 > January 2, 2020
 * :tada: **Enhancement** Update build and use browserlist
