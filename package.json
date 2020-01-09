@@ -38,7 +38,7 @@
   "scripts": {
     "test": "jest src",
     "test:watch": "npm run test -- --watch",
-    "babel": "npm run clean && cross-env NODE_ENV=production  npx babel -d lib src/components --ignore **/*.test.jsx --source-maps",
+    "babel": "npm run clean && cross-env NODE_ENV=production npx babel -d lib src/components --ignore **/*.test.jsx --source-maps",
     "clean": "rm -rf lib",
     "build": "npm test && npm run eslint && npm run babel",
     "eslint": "npx eslint src --ext .js --ext .jsx",
