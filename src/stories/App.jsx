@@ -47,6 +47,7 @@ class App extends Component {
                 onClick={() => this.setIndex(i)}
                 style={{ width: '100%' }}
                 type="button"
+                data-cy={`collapse-toggle-${i}`}
               >
                 {element.name}
               </button>
@@ -55,6 +56,7 @@ class App extends Component {
                 onRest={() => action('onRest')}
                 // eslint-disable-next-line react/jsx-props-no-spreading
                 {...props}
+                data-cy={`collapse-${i}`}
               >
                 <div style={{ background: 'lightpink', padding: '20px' }}>
                   <Content />

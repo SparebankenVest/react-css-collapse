@@ -47,7 +47,8 @@
     "prepublish": "npm run build",
     "start": "npm run babel -- -w",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "cypress:open": "cypress open"
   },
   "peerDependencies": {
     "react": ">=16.8",
@@ -62,6 +63,8 @@
     "@storybook/addon-actions": "^5.2.8",
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/react": "^5.2.8",
+    "@testing-library/cypress": "^5.0.2",
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "acorn": "^7.1.0",
     "babel-eslint": "^10.0.3",
@@ -69,9 +72,12 @@
     "babel-loader": "^8.0.6",
     "babel-preset-react-app": "^9.1.0",
     "cross-env": "^6.0.3",
+    "cypress": "^3.8.1",
+    "cypress-react-unit-test": "^2.4.3",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-cypress": "^2.8.1",
     "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.3.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
