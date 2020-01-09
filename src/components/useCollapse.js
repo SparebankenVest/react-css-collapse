@@ -33,8 +33,11 @@ const useCollapse = ({ isOpen, content }) => {
       }
     } else {
       setHeight(getHeight(content));
+      // The magic: Set collapsed style after setting height to enable smooth transition based on height
       window.requestAnimationFrame(() => {
+        // Setting these properties will start transition from measured height to 0
         setTimeout(() => {
+          // Setting these properties will start transition from measured height to 0
           setHeight('0');
           setOverflow('hidden');
         });
