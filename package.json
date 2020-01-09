@@ -62,6 +62,7 @@
     "@storybook/addon-actions": "^5.2.8",
     "@storybook/addon-knobs": "^5.2.8",
     "@storybook/react": "^5.2.8",
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "acorn": "^7.1.0",
     "babel-eslint": "^10.0.3",
