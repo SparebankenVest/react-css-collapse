@@ -1,5 +1,9 @@
 # Changelog
 
+# 4.0.4
+> January 14, 2020
+* :bug: **Bugfix** Remove animation / calculation on first render
+
 # 4.0.3
 > January 8, 2020
 * :tada: **Enhancement** Rewrite tests to use jest snapshots and @testing-library/react

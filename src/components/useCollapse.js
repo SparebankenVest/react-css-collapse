@@ -31,7 +31,7 @@ const useCollapse = ({ isOpen, content }) => {
       } else {
         setHeight(getHeight(content));
       }
-    } else {
+    } else if (!isFirstRender) {
       setHeight(getHeight(content));
       // The magic: Set collapsed style after setting height to enable smooth transition based on height
       window.requestAnimationFrame(() => {
