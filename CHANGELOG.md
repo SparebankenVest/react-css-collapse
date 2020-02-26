@@ -1,5 +1,9 @@
 # Changelog
 
+# 4.0.5
+> February 26, 2020
+* :bug: **Bugfix** Add npmrc and update package-lock to use npmjs registry
+
 # 4.0.4
 > January 14, 2020
 * :bug: **Bugfix** Remove animation / calculation on first render
