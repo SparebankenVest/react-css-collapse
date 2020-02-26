@@ -2,7 +2,6 @@ import React, { Component, useState } from 'react';
 import PropTypes from 'prop-types';
 import { action } from '@storybook/addon-actions';
 import Collapse from '../components/Collapse';
-import './style.css';
 import { text } from '../data';
 
 const Content = () => {

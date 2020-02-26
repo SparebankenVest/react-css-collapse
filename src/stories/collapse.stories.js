@@ -1,13 +1,16 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
+import './style.css';
 import App from './App';
+import CollapseWithOverflow from './CollapseWithOverflow';
 import { elements } from '../data';
 
 storiesOf('Collapse', module)
   .addDecorator(withKnobs)
   .add('default', () => <App elements={elements} initialIndex={null} />)
   .add('initially toggled', () => <App elements={elements} initialIndex={1} />)
+  .add('initially toggled with overflow', () => <CollapseWithOverflow />)
   .add('custom style transition ', () => (
     <App
       elements={elements}

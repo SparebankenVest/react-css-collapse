@@ -25,7 +25,7 @@ exports[`Collapse when open before transition end 1`] = `
   <div
     class="react-css-collapse-transition"
     data-testid="collapse"
-    style="will-change: height; overflow: hidden; visibility: visible; height: auto;"
+    style="will-change: height; overflow: visible; visibility: visible; height: auto;"
   />
 </DocumentFragment>
 `;
