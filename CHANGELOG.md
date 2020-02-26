@@ -1,5 +1,9 @@
 # Changelog
 
+# 4.0.6
+> February 26, 2020
+* :bug: **Bugfix** Set overflow: visible; on initial render when isOpen is true.
+
 # 4.0.5
 > February 26, 2020
 * :bug: **Bugfix** Add npmrc and update package-lock to use npmjs registry

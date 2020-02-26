@@ -111,7 +111,7 @@ describe('Collapse', () => {
     });
     const el = component.getByTestId('collapse');
     expect(el).toHaveStyle(
-      'overflow: hidden; visibility: visible; height: auto;',
+      'overflow: visible; visibility: visible; height: auto;',
     );
     expect(component.asFragment()).toMatchSnapshot();
   });

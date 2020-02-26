@@ -28,6 +28,7 @@ const useCollapse = ({ isOpen, content }) => {
       setVisibility('visible');
       if (isFirstRender) {
         setHeight('auto');
+        setOverflow('visible');
       } else {
         setHeight(getHeight(content));
       }

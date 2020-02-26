@@ -5,3 +5,31 @@
 .react-css-collapse-transition-custom {
   transition: height 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.App {
+  margin-top: 25px;
+  border-radius: 5px;
+  font-family: sans-serif;
+  text-align: center;
+
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: lightgrey;
+
+  position: relative;
+}
+
+.App-under-overflow {
+  position: absolute;
+  padding: 40px;
+  width: 200px;
+  top: 80px;
+  background: green;
+  color: white;
+}
+
+.react-css-collapse-transition {
+  transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
