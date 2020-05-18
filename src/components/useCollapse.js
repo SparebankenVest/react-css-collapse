@@ -7,7 +7,7 @@ function getHeight(content) {
   return '0px';
 }
 
-const useCollapse = ({ isOpen, content }) => {
+const useCollapse = ({ isOpen, content, alwaysAuto }) => {
   const [height, setHeight] = useState('0');
   const [overflow, setOverflow] = useState('hidden');
   const [visibility, setVisibility] = useState('hidden');
@@ -30,7 +30,7 @@ const useCollapse = ({ isOpen, content }) => {
         setHeight('auto');
         setOverflow('visible');
       } else {
-        setHeight(getHeight(content));
+        setHeight(alwaysAuto ? 'auto' : getHeight(content));
       }
     } else if (!isFirstRender) {
       setHeight(getHeight(content));
