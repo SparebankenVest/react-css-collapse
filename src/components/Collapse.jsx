@@ -8,12 +8,14 @@ function Collapse({
   style: initialStyle,
   transition,
   className,
+  alwaysAuto,
   ...rest
 }) {
   const content = useRef(null);
   const { setIsExpandedStyle, setIsCollapsedStyle, style } = useCollapse({
     isOpen,
     content,
+    alwaysAuto,
   });
 
   const onTransitionEnd = e => {
@@ -54,6 +56,7 @@ Collapse.defaultProps = {
   style: null,
   className: 'react-css-collapse-transition',
   transition: null,
+  alwaysAuto: null,
 };
 
 Collapse.propTypes = {
@@ -62,6 +65,7 @@ Collapse.propTypes = {
   style: shape({}),
   className: string,
   transition: string,
+  alwaysAuto: bool,
 };
 
 export default Collapse;
