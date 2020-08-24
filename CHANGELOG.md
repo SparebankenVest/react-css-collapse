@@ -3,7 +3,7 @@
 # 4.1.0
 > August 24, 2020
 * :nut_and_bolt: **New** Add default transition
-* :tada: Update devDependencies
+* :tada: **Enhancement** Update devDependencies
 
 # 4.0.6
 > February 26, 2020
