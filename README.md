@@ -43,7 +43,8 @@ Expands or collapses content.
 
 #### `className`: PropType.string
 Specify transition using the class selector with transition or the style property.
-The `react-css-collapse-transition` class selector is added by default unless you specify your own. Note: Remember to include the style if you are using the default selector 👇
+The `react-css-collapse-transition` class selector is added by default unless you specify your own.  
+The default transition can be overridden using the `transition` prop, or with custom styling 👇. Note: replace the selector with your selector if you have specified a different `className`.
 
 ```scss
 .react-css-collapse-transition {
