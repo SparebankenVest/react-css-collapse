@@ -1,5 +1,10 @@
 # Changelog
 
+# 4.1.0
+> August 24, 2020
+* :nut_and_bolt: **New** Add default transition
+* :tada: **Enhancement** Update devDependencies
+
 # 4.0.6
 > February 26, 2020
 * :bug: **Bugfix** Set overflow: visible; on initial render when isOpen is true.

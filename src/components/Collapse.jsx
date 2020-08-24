@@ -16,7 +16,7 @@ function Collapse({
     content,
   });
 
-  const onTransitionEnd = e => {
+  const onTransitionEnd = (e) => {
     if (e.target === content.current && e.propertyName === 'height') {
       if (isOpen) {
         setIsExpandedStyle();
