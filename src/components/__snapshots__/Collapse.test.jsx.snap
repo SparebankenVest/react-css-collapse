@@ -5,7 +5,7 @@ exports[`Collapse default 1`] = `
   <div
     class="react-css-collapse-transition"
     data-testid="collapse"
-    style="will-change: height; overflow: hidden; visibility: hidden; height: 0px;"
+    style="will-change: height; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; visibility: hidden; height: 0px;"
   />
 </DocumentFragment>
 `;
@@ -15,7 +15,7 @@ exports[`Collapse when open after transition end 1`] = `
   <div
     class="react-css-collapse-transition"
     data-testid="collapse"
-    style="will-change: height; overflow: visible; visibility: visible; height: auto;"
+    style="will-change: height; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1); overflow: visible; visibility: visible; height: auto;"
   />
 </DocumentFragment>
 `;
@@ -25,7 +25,7 @@ exports[`Collapse when open before transition end 1`] = `
   <div
     class="react-css-collapse-transition"
     data-testid="collapse"
-    style="will-change: height; overflow: visible; visibility: visible; height: auto;"
+    style="will-change: height; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1); overflow: visible; visibility: visible; height: auto;"
   />
 </DocumentFragment>
 `;
@@ -37,7 +37,7 @@ exports[`Collapse with aria and data props 1`] = `
     class="react-css-collapse-transition"
     data-any-value="1337"
     data-testid="collapse"
-    style="will-change: height; overflow: hidden; visibility: hidden; height: 0px;"
+    style="will-change: height; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; visibility: hidden; height: 0px;"
   />
 </DocumentFragment>
 `;
@@ -47,7 +47,7 @@ exports[`Collapse with children 1`] = `
   <div
     class="react-css-collapse-transition"
     data-testid="collapse"
-    style="will-change: height; overflow: hidden; visibility: hidden; height: 0px;"
+    style="will-change: height; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; visibility: hidden; height: 0px;"
   >
     children
   </div>
@@ -59,7 +59,7 @@ exports[`Collapse with class 1`] = `
   <div
     class="className"
     data-testid="collapse"
-    style="will-change: height; overflow: hidden; visibility: hidden; height: 0px;"
+    style="will-change: height; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; visibility: hidden; height: 0px;"
   />
 </DocumentFragment>
 `;
