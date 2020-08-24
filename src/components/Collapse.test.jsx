@@ -14,7 +14,7 @@ function transitionEndEventWithHeightProperty(el) {
 
 describe('Collapse', () => {
   beforeEach(() => {
-    jest.spyOn(window, 'requestAnimationFrame').mockImplementation(cb => {
+    jest.spyOn(window, 'requestAnimationFrame').mockImplementation((cb) => {
       cb();
     });
   });
