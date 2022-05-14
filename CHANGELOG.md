@@ -1,5 +1,10 @@
 # Changelog
 
+# 4.1.1
+> February 24, 2022
+* :wrench: **Maintenance** Upgrade dependencies
+* :tada: **Enhancement** Add dependabot and issue-templates for github.
+
 # 4.1.0
 > August 24, 2020
 * :nut_and_bolt: **New** Add default transition

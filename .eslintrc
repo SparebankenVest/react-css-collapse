@@ -1,6 +1,6 @@
 {
-  "parser": "babel-eslint",
-  "extends": ["airbnb", "prettier", "prettier/react"],
+  "parser": "@babel/eslint-parser",
+  "extends": ["airbnb", "prettier"],
   "plugins": ["prettier", "jest", "react-hooks"],
   "env": {
     "jest": true
@@ -15,6 +15,7 @@
     "react/require-extension": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".spec.js", ".stories.js", ".jsx"] }],
     "react/no-unused-prop-types": [2, { "skipShapeProps": true}],
-    "import/no-unresolved": [1, { "caseSensitive": false }]
+    "import/no-unresolved": [1, { "caseSensitive": false }],
+    "react/function-component-definition": 0,
   }
 }
