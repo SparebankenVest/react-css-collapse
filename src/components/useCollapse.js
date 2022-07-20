@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 function getHeight(content) {
   if (content && content.current && content.current.scrollHeight) {
@@ -23,7 +23,7 @@ const useCollapse = ({ isOpen, content }) => {
     setVisibility('hidden');
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (isOpen) {
       setVisibility('visible');
       if (isFirstRender) {
